@@ -1,0 +1,155 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Removed line-clamp-2 utility as it's no longer needed */
+
+:root {
+  --background: hsl(30, 11%, 97%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(60, 4.8%, 95.9%);
+  --secondary-foreground: hsl(24, 9.8%, 10%);
+  --accent: hsl(60, 4.8%, 95.9%);
+  --accent-foreground: hsl(24, 9.8%, 10%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    font-family: "CircularXX", "Inter", sans-serif;
+  }
+}
+
+.gradient-bg {
+  background: linear-gradient(to bottom, #d2ffcb 0%, #f9f4f1 100%);
+}
+
+.brand-gradient {
+  background: linear-gradient(
+    135deg,
+    rgb(61, 150, 255) 0%,
+    rgb(91, 170, 255) 100%
+  );
+}
+
+.brand-blue {
+  color: rgb(61, 150, 255);
+}
+
+.bg-brand {
+  background-color: rgb(61, 150, 255);
+}
+
+.bg-brand-light {
+  background-color: rgb(91, 170, 255);
+}
+
+.bg-brand-dark {
+  background-color: rgb(41, 130, 235);
+}
+
+.hover\:bg-brand-dark:hover {
+  background-color: rgb(41, 130, 235);
+}
+
+.text-brand {
+  color: rgb(61, 150, 255);
+}
+
+.text-brand-dark {
+  color: rgb(41, 130, 235);
+}
+
+.hover\:text-brand:hover {
+  color: rgb(61, 150, 255);
+}
+
+.hover\:text-brand-dark:hover {
+  color: rgb(41, 130, 235);
+}
+
+.border-brand {
+  border-color: rgb(61, 150, 255);
+}
+
+.focus\:ring-brand:focus {
+  --tw-ring-color: rgb(61, 150, 255);
+}
+
+.focus\:border-brand:focus {
+  border-color: rgb(61, 150, 255);
+}
+
+/* Mobile-specific improvements */
+@media (max-width: 640px) {
+  /* Improve touch targets */
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Better spacing for mobile */
+  .mobile-spacing {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Improve form inputs on mobile */
+  input,
+  select,
+  textarea {
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+
+  /* Better button spacing */
+  .mobile-button-group {
+    gap: 0.5rem;
+  }
+
+  /* Improve modal spacing */
+  .mobile-modal {
+    margin: 1rem;
+    max-height: calc(100vh - 2rem);
+  }
+}

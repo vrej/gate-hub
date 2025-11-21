@@ -1,0 +1,147 @@
+NAME,DEPARTMENTS USING IT,WHAT IS IT FOR? ,AI FEATURES AND HIGHLIGHTS
+ADOBE CREATIVE SUITE,Brand Design,,"Photoshop:
+Content-Aware Fill: Automatically fills in selected areas with surrounding pixels to remove unwanted objects.
+Select Subject and Object Selection Tool: Quickly selects prominent objects or people in an image with a single click.
+Neural Filters: Applies complex edits like skin smoothing, style transfer, and colorization using machine learning algorithms.
+Illustrator:
+Auto Trace: Converts bitmap images into vector paths with precision.
+Color Transfer: Transfers colors from one image to another to maintain a cohesive look across designs
+Premiere Pro:
+Auto Reframe: Automatically repositions video content for different aspect ratios, such as square, vertical, and cinematic formats.
+Scene Edit Detection: Identifies and creates cuts at scene changes in edited video sequences.
+After Effects:
+Roto Brush: Simplifies the process of rotoscoping by automatically selecting and tracking objects in video frames.
+Content-Aware Fill for Video: Removes unwanted objects from video footage and fills in the missing pixels.
+Lightroom:
+Auto Tone: Automatically adjusts exposure, contrast, and other settings to enhance photos.
+Enhanced Details: Uses AI to improve the resolution and clarity of images, particularly those captured in RAW format.
+"
+ALGOLIA ,Ecomm,"A search and discovery API for building powerful, fast, and relevant search experiences - used on our websites",Wide range of features that are all part of enhancing the search results and experience.
+ARCTIC WOLF,IT,A cybersecurity company that provides managed detection and response services to protect organizations from cyber threats,"Hybrid AI Model: Combines machine learning-driven anomaly detection with continuous human analysis to detect more attacks and produce fewer false positives than traditional methods
+Automated Threat Detection: Uses AI to process and analyze vast amounts of security data, detecting advanced threats and anomalies in real-time 
+Behavioral Analytics: Employs machine learning to understand and identify unusual behavior patterns that may indicate security incidents .
+Predictive Insights: Uses AI to predict potential security threats and vulnerabilities, enabling proactive defense measures .
+Continuous Learning: Machine learning algorithms continuously adapt and improve based on new data, enhancing the system's ability to respond to evolving threats"
+ASANA,Marketing,"An application designed to help teams organize, track, and manage their work projects effectively","Asana incorporates several AI features to enhance work and project management, some examples like: Smart Status, Smart Answers, Smart Summaries, Smart Projects. These features aim to streamline workflows, enhance productivity, and ensure clarity and accountability in project management within Asana"
+BYNDER,Brand Design,DAM - Design Asset Management system,"Bynder uses AI to enhance its digital asset management (DAM) capabilities. Some of the AI features include: Automated Tagging, Image and Text Recognition, Content Creation"
+CHATGPT,Company-wide,AI language model that generates human-like text based on the prompts it receives,
+DARK TRACE - Antigena,"Company-wide, IT",AI-powered autonomous response solution that detects and neutralizes cyber threats in real-time across various IT environments,"Self-Learning AI, Autonomous Response, Multi-Environment Protection"
+DOCUSIGN,"HR, Legal",A digital transaction management platform that provides electronic signature technology and agreement cloud services,"Agreement Summarization, Smart Document Recognition, DocuSign Insight, Intelligent Agreement Management, AI for Contract Lifecycle Management"
+ESKO ArtiosCAD,Brand Design,Packaging toolsets,"Automated Design Tools: AI-powered tools automatically generate design elements, such as die lines and structural components, optimizing for material usage and manufacturability.
+3D Modeling and Visualization: AI helps in creating accurate 3D models and visualizations of packaging designs, allowing for better visualization and analysis of the final product.
+Intelligent Layout Optimization: Uses AI to optimize the layout of packaging designs on sheets or rolls, minimizing waste and maximizing efficiency.
+Predictive Analysis: Analyzes design elements to predict potential issues and suggests modifications to improve the structural integrity and functionality of the packaging.
+Automated Preflighting: AI checks designs for errors and compliance with industry standards, ensuring that files are production-ready and reducing the risk of costly mistakes."
+EXCEL (Microsoft) ,Company-wide,Data analysis and visualization.,"Ideas: Automatically analyzes data to provide insights, trends, and patterns.
+Data Types: Recognizes and organizes information into relevant data types (e.g., stocks, geography).
+Dynamic Arrays: Automatically fills data based on patterns detected in the initial entries.
+Predictive Analytics: Uses historical data to forecast future trends.
+Real-Time Collaboration: Leverages AI to streamline collaboration and prevent conflicts in data changes."
+FATHOM (Zoom Extension),Marketing,Zoom note taker extension,"Automatic Meeting Transcription: Provides real-time transcriptions during meetings.
+Summary and Highlights: Automatically generates summaries and highlights key points from meetings.
+Action Items and Follow-ups: Identifies and extracts action items and follow-ups from discussions.
+Searchable Meeting Archives: Allows users to search through transcribed meetings for specific information.
+Sentiment Analysis: Analyzes the tone of the conversation to provide insights into participant sentiment."
+FIGMA,"Brand Design, Ecomm, Marketing","A web-based design tool that enables collaborative interface design, prototyping, and design system management.","Design Generation: Figma AI can transform written prompts into editable design layouts quickly, helping users explore various design possibilities and reducing the effort required for initial design creation.
+Asset and Design Search: AI assists in finding specific designs or assets across a team or organization by allowing searches based on partial designs, screenshots, or descriptions.
+Prototyping and Layer Naming: AI tools enable the quick transformation of designs into interactive prototypes and automate the naming of design layers for better organization.
+Content Manipulation: Figma AI can replace placeholder text with realistic content, rewrite text in different tones, translate text, and shorten text to fit design needs.
+Image Generation and Background Removal: Users can generate unique images from text prompts and remove backgrounds from images to isolate main subjects."
+FRESHDESK,IT Helpdesk,A customer support software - Helpdesk,"Freddy AI: An AI-powered chatbot that automates responses to common customer inquiries, reducing the load on support agents.
+Automated Ticket Routing: Uses machine learning to categorize and assign tickets to the appropriate agents based on past data and ticket content.
+Predictive Insights: Analyzes historical ticket data to predict customer sentiment and potential escalations, helping agents prioritize their workload.
+AI-Powered Email Notifications: Automatically suggests and generates email responses, improving response time and accuracy.
+Knowledge Base Suggestions: Recommends relevant articles from the knowledge base to both agents and customers to quickly resolve issues."
+GITHUB,"IT Developers, Forecasting Team",A platform for version control and collaborative software development,"GitHub Copilot: An AI-powered code completion tool that suggests code snippets and entire functions as you type.
+Code Scanning: Uses AI to identify and suggest fixes for security vulnerabilities in your code.
+Dependabot: An automated tool that helps manage and update dependencies.
+Issue Triage: Uses machine learning to prioritize and categorize issues.
+Actions and Workflows: Automates repetitive tasks and CI/CD pipelines with intelligent triggers and conditions."
+HUBBLE,"Accounting, Sales","A business intelligence tool that provides real-time analytics, reporting, and data visualization for Oracle E-Business Suite ","AI-Powered Analytics: Provides advanced data analysis and insights for more informed decision-making.
+Automated Reporting: Uses AI to generate and schedule reports, reducing manual effort and improving efficiency.
+Real-Time Data Processing: Leverages AI to handle large volumes of data quickly and accurately, ensuring timely insights.
+Predictive Analytics: Employs machine learning to forecast future trends and outcomes based on historical data.
+Data Visualization: Uses AI to create intuitive and interactive visualizations that help users understand complex data easily."
+JENKINS,IT,"An open-source automation server used to automate the building, testing, and deployment of software projects","Jenkins AI: This is an AI-powered extension that automates repetitive tasks, optimizes builds, and provides actionable insights into the CI/CD pipeline. It helps in improving efficiency and predicting potential issues before they occur? 
+Machine Learning Plugins: Jenkins supports plugins that integrate machine learning tasks into the CI/CD process. For instance, there are plugins that allow Jenkins to interact with Jupyter Notebooks and TensorBoard, enabling the integration of machine learning workflows directly into Jenkins pipelines? 
+Predictive Analytics and Optimization: AI tools in Jenkins can analyze vast amounts of data from the build process, predict potential bottlenecks, and optimize resource allocation, thereby enhancing overall productivity and efficiency?"
+JIRA,"IT, Ecomm, Developers Helpdesk","A project management tool designed for agile teams to plan, track, and manage software development projects","Automation: Uses AI to automate repetitive tasks, such as transitioning issues, sending notifications, and updating fields, reducing manual effort and errors.
+Predictive Insights: AI analyzes historical data to predict project timelines, potential bottlenecks, and resource allocation needs.
+Smart Issue Recommendations: Suggests related issues and potential solutions based on the context and content of current issues.
+Natural Language Processing (NLP): Enhances search functionality and allows users to interact with the system using natural language queries.
+Prioritization and Triage: AI helps prioritize issues based on factors like urgency, impact, and historical data, aiding in efficient backlog management."
+KEYSHOT,Brand Design,3D rendering and animation software known for its real-time rendering capabilities.,"KeyShot utilizes AI features to enhance its 3D rendering and material creation processes. KeyShot 9 introduced a deep learning denoiser that reduces noise in rendered images, significantly speeding up the rendering process by achieving smoother results more quickly. This feature works in both CPU and GPU modes"
+KLAVIYO,"Ecomm, Marketing",Marketing automation platform for emails,"Predictive Analytics: Forecasts customer behavior, such as purchase likelihood and expected revenue.
+Personalized Recommendations: Tailors product suggestions for individual customers based on their behavior and preferences.
+Segmentation: Uses AI to create dynamic customer segments for targeted marketing.
+Automated Campaigns: Designs and executes email campaigns triggered by customer actions.
+Performance Insights: Provides AI-driven insights into campaign performance and customer interactions."
+KnowBE4,"Company-wide, IT",A security awareness training platform that helps organizations manage the ongoing problem of social engineering,"AI-Driven Phishing, AIDA (Artificial Intelligence Defense Agent), PhishER Plus"
+OKTA,"Company-wide, IT",An identity and access management (IAM) platform that provides secure authentication and authorization services to help organizations manage and protect user access to applications and data,"Okta AI for Identity, Identity Threat Protection (ITP), Policy Recommender, Log Investigator, Governance Analyzer, Identity Flow Optimizer"
+ORACLE EPM - under consideration,Accounting,Oracle Enterprise Performance Management ,"Predictive Planning: Uses machine learning to improve forecasting accuracy and predict future trends.
+Automated Insights: Provides AI-driven insights and recommendations for financial and operational performance.
+Narrative Reporting: Employs natural language processing (NLP) to generate narrative explanations of data and reports.
+Anomaly Detection: Identifies unusual patterns in financial data to highlight potential issues.
+Data Integration: Utilizes AI for seamless integration and transformation of disparate data sources."
+OUTLOOK (Microsoft) ,Company-wide,Email and calendar management.,"Focused Inbox: Automatically sorts important emails into the ""Focused"" tab, while less important ones go to the ""Other"" tab.
+Suggested Replies: Provides quick, contextually appropriate responses to emails.
+Insights: Offers actionable insights into your work habits, such as time management and email patterns.
+Smart Scheduling: Suggests optimal meeting times based on participant availability.
+Email Triage: Uses AI to prioritize and categorize emails for better organization."
+OWNBACKUP,IT,"A cloud-to-cloud backup and recovery service that protects SaaS data, in our case Salesforce data","Automated Data Protection, GDPR Compliance, Data Archiving and Masking,."
+PINGDOM,IT,"A website and performance monitoring service that provides real-time insights into website uptime, performance","Real User Monitoring (RUM), Synthetic Monitoring, Transaction Monitoring, Page Speed Monitoring"
+POWER POINT (Microsoft) ,Company-wide,Presentation design and delivery.,"Designer: Suggests design layouts for slides to enhance visual appeal.
+QuickStarter: Provides a curated outline for new presentations based on the topic.
+Presenter Coach: Offers real-time feedback on pacing, inclusive language, and filler words during practice runs.
+Live Captions and Subtitles: Generates real-time captions and translations during presentations for better accessibility.
+Morph: Creates smooth animations between slides for a more dynamic presentation."
+PROOFPOINT,"Company-wide, IT","A cybersecurity tool that provides solutions to protect organizations from advanced threats and compliance risks, focusing on email security","NexusAI, AI-Powered Data Loss Prevention (DLP), Behavioral AI, AI-Augmented Compliance"
+RINGCENTRAL,Company-wide,"A cloud-based communication and collaboration platform that provides voice, video, messaging, and contact center solutions","RingSense: This AI platform leverages generative AI to provide conversation intelligence, enabling organizations to extract insights from conversations, automate note-taking, and improve sales efficiency through AI-driven summaries and recommendations.
+AI-Powered Video Meetings: Includes features like automated meeting summaries, noise reduction, and video adjustments for better user experiences.
+AI in Contact Centers: Offers AI-driven interaction summaries, scoring, and integration with CRM systems to streamline workflows and enhance productivity?"
+RUBRIK,IT,"A cloud data management and data security platform that provides backup, recovery, archival ","Ruby AI, Anomaly Detection, Data Threat Analytics, SentryAI"
+SALESFORCE (Service Cloud),Customer Satisfaction and Compliance,Customer service platform,"Bots: Automated chatbots handle routine inquiries, freeing up agents for more complex issues.
+Case Classification: Automatically categorizes and prioritizes cases based on content and context.
+Case Routing: Routes cases to the most appropriate agent based on AI analysis.
+Article Recommendations: Suggests relevant knowledge articles to agents for quicker resolution.
+Reply Recommendations: Provides agents with suggested responses to customer queries."
+SHARE POINT (Microsoft),Company-wide,Document management and collaboration,"Personalized Search: Uses AI to provide search results tailored to the user's role, past activity, and relevance.
+Automated Tagging and Metadata: Automatically tags and categorizes content to improve searchability and organization.
+Content Recommendations: Suggests relevant documents and pages based on user activity and interests.
+Image Recognition: Identifies objects in images to enhance metadata and search functionality.
+Text Extraction: Extracts and indexes text from images and documents for improved search results."
+SHOPIFY,Ecomm,A cloud Ecommerce platform.,"Fraud Protect: Uses AI to identify and prevent fraudulent transactions.
+Product Recommendations: AI-based suggestions to increase cross-selling and upselling."
+SLACK,Company-wide,Collaboration and communication platform. - AI feature is NOT turned on (Paid addon),"AI tools built right into Slack that allow you to search smarter, summarize conversations instantly and automate workflows"
+SOLIDWORKS,Product Development,A computer-aided design (CAD) and engineering software,"Design Assistant: This AI-powered tool learns from users’ design habits and suggests improvements, automating repetitive tasks. It includes features like Mate Helper, Smart Mate, and Selection Helper, which assist in placing components, creating fully constrained mates, and predicting next selections respectively. These tools streamline the design process by reducing manual input and improving efficiency.
+Machine Learning Algorithms: Integrated into various SOLIDWORKS tools, these algorithms help automate tasks such as selecting edges or working with mates. The AI continuously learns from user interactions to provide better suggestions and optimizations over time.
+AI Denoiser: In SOLIDWORKS Visualize, the AI Denoiser uses machine learning to enhance rendering quality by reducing noise, allowing for quicker and higher-quality image outputs."
+SOPHOS,"Company-wide, IT","Antivirus, endpoint security","Sophos AI and Machine Learning: Sophos has integrated AI and machine learning across its products to improve threat detection, behavior analysis, and automated response. This includes the use of deep learning models to identify and block new and unknown threats, ensuring real-time protection against evolving cyber threats.
+Intercept X: This endpoint protection solution leverages deep learning for malware detection and employs AI to analyze behaviors, block exploits, and prevent ransomware. It combines traditional signature-based detection with advanced machine learning models to provide comprehensive security.
+Sophos XDR (Extended Detection and Response): Sophos XDR uses AI to correlate data from various sources, providing deeper insights into potential threats and enabling faster, more effective responses. It helps in identifying patterns and anomalies that indicate security breaches.
+Generative AI Policy Enforcement: With Sophos Firewall, organizations can monitor and control the usage of generative AI applications, ensuring that these tools are used securely and in compliance with corporate policies. This feature helps manage the risks associated with generative AI technologies while leveraging their benefits for data analysis and content creation.
+AI-Assisted Security Operations Centers (SOC): Sophos envisions AI-assisted SOCs that automate many routine tasks, providing course-of-action recommendations and enabling push-button automation for incident response. This helps security teams focus on more complex issues while improving overall efficiency and response times."
+TEAMS (Microsoft),Company-wide,Collaboration and communication platform.,"Background Blur and Custom Backgrounds: Automatically blurs or changes the background during video calls to reduce distractions.
+Live Captions: Provides real-time captions during meetings to aid accessibility.
+Meeting Recap: Generates a summary of the meeting, including recordings, transcripts, and highlights.
+Smart Camera: Adjusts the frame to keep participants in view.
+Cortana Integration: Uses voice commands to manage tasks and schedule meetings.
+Noise Suppression: Filters out background noise for clearer audio."
+UKG (Ultipro),"Company-wide, HR","HR, payroll, and workforce management solution","UKG Bryte: This AI-powered assistant leverages generative AI (GenAI) to guide employees, managers, and HR leaders by providing insights that improve workplace experiences. It offers personalized recommendations based on extensive data from workforce and culture studies, helping organizations foster a better workplace culture and drive business outcomes? 
+Generative AI-Powered Conversational Experiences: UKG integrates generative AI across its HCM suites, enabling users to interact with the system through natural language, both text and voice, to access information, analyze insights, and complete processes more intuitively. This approach reduces the need for manual navigation and provides personalized responses to user queries? 
+AI in Learning and Development: UKG uses AI to drive employee learning and development by performing skills gap analyses, creating personalized learning paths, supporting continuous learning, and providing AI tutors and chatbots for immediate assistance. This helps organizations enhance employee skills and engagement effectively? 
+Enhanced Reporting and Insights: AI-powered tools in UKG solutions enable quick generation of reports and insights from vast datasets, allowing organizations to make informed decisions and identify opportunities for improvement in areas like pay equity, employee demographics, and productivity? "
+WORD (Microsoft),Company-wide,Document creation and editing.,"Editor: AI-powered writing assistant that checks for grammar, style, and clarity, providing suggestions for improvements.
+Smart Compose: Provides text predictions and auto-completes sentences to speed up writing.
+Translator: Built-in AI that translates text into different languages.
+Researcher: Assists in finding relevant information and sources directly within the document.
+Dictate: Converts spoken words into text using AI speech recognition."
+WORKFRONT,PMO,An enterprise work management platform ,"AI-Powered Capabilities: Workfront uses AI to streamline the creation of briefs, accelerate project launches, ensure brand compliance, and maximize productivity through natural language processing. This helps in automating routine tasks and improving overall efficiency in managing projects.
+Automated Task Assignments: The platform includes AI-enabled global resource scheduling and task assignment features, which help in allocating tasks based on priority, availability, and skill requirements, ensuring the right people are working on the right tasks.
+Integrations with AI Tools: Workfront integrates with tools like Adobe Creative Cloud and Adobe Experience Manager to automate content creation and workflow management. It also leverages OpenAI for generating text and images, enhancing content velocity for marketing and design teams.
+Real-Time Insights and Forecasting: The software provides granular insights into project progress and team workload, using AI to predict potential bottlenecks and optimize resource allocation. This helps in making informed decisions and maintaining project timelines."
+ZOOM,Company-wide,,"Virtual Backgrounds: Uses AI to enable virtual backgrounds without a green screen.
+Noise Suppression: Reduces background noise for clearer audio.
+Live Transcription: Provides real-time automated captions during meetings.
+Meeting Summaries: Summarizes key points and action items from meetings.
+Smart Gallery: Creates individual video feeds of participants in a conference room."

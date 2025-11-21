@@ -1,0 +1,42 @@
+name: whybrands-application-portal
+services:
+  - name: web
+    source_dir: /
+    github:
+      repo: your-username/your-repo-name
+      branch: main
+    run_command: npm run start
+    environment_slug: node-js
+    instance_count: 1
+    instance_size_slug: basic-xxs
+    http_port: 5001
+    routes:
+      - path: /
+    envs:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: "5001"
+      - key: NODE_VERSION
+        value: "20"
+    # Add your environment variables here
+    # - key: DATABASE_URL
+    #   value: your-database-url
+    # - key: SESSION_SECRET
+    #   value: your-session-secret
+    # - key: OKTA_ISSUER
+    #   value: your-okta-issuer
+    # - key: OKTA_CLIENT_ID
+    #   value: your-okta-client-id
+    # - key: OKTA_CLIENT_SECRET
+    #   value: your-okta-client-secret
+    # - key: ENABLE_MANUAL_AUTH
+    #   value: "true"
+    # - key: OPENAI_API_KEY
+    #   value: your-openai-api-key
+    # - key: JIRA_BASE_URL
+    #   value: your-jira-base-url
+    # - key: JIRA_API_TOKEN
+    #   value: your-jira-api-token
+    # - key: JIRA_ADMIN_EMAIL
+    #   value: your-jira-admin-email

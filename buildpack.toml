@@ -1,0 +1,19 @@
+[[buildpack]]
+id = "digitalocean/nodejs-appdetect"
+version = "0.0.6"
+
+[[buildpack]]
+id = "heroku/nodejs"
+version = "0.296.5"
+
+[build]
+builder = "paketobuildpacks/builder:base"
+
+[phases.setup]
+  cache-dependency-layers = true
+
+[phases.install]
+  cache-dependency-layers = true
+
+[phases.build]
+  cache-dependency-layers = true 
