@@ -30,86 +30,101 @@ export default function Navigation({ showUserMenu = false, user = null }: Naviga
 
   return (
     <>
-      <nav className="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center space-x-8">
-              {/* WhyBrands Logo */}
-              <Link href="/" className="flex items-center space-x-3">
-                <img
-                  src="https://whybrands.com/images/logo.svg"
-                  alt="WhyBrands Logo"
-                  className="h-8 w-auto"
-                />
-                <span className="text-xl font-bold text-gray-900 uppercase tracking-wide">
-                  Portal
-                </span>
-              </Link>
-              
-              {/* Navigation Links - Only show in admin panel */}
-              {showUserMenu && (
-                <div className="hidden md:flex space-x-6">
-                  <Link
-                    href="/"
-                    className={`font-medium transition-colors duration-200 ${
-                      location === "/" ? "text-brand" : "text-gray-700 hover:text-brand"
-                    }`}
-                  >
-                    Applications
-                  </Link>
-                </div>
-              )}
-            </div>
+      <nav className="sticky top-0 z-50" style={{ 
+        backgroundColor: '#1E2A38',
+        fontFamily: 'Inter, sans-serif',
+        padding: '16px 24px'
+      }}>
+        <div className="flex justify-between items-center">
+          {/* Logo on the left */}
+          <Link href="/" className="flex items-center">
+            <img
+              src="/images/GateHubTMbyDWM80.png"
+              alt="GateHub Logo"
+              style={{ 
+                height: '80px', 
+                width: 'auto'
+              }}
+            />
+          </Link>
 
-            <div className="flex items-center space-x-4">
-              {/* Help Link - Show on all pages */}
-              <Button
-                variant="ghost"
-                onClick={() => setIsHelpModalOpen(true)}
-                className="text-gray-600 hover:text-brand"
-                size="sm"
+          {/* Right side: Help link and CTA button */}
+          <div className="flex items-center gap-4">
+            {/* Help Link */}
+            <button
+              onClick={() => setIsHelpModalOpen(true)}
+              style={{
+                color: '#94a3b8',
+                fontSize: '14px',
+                fontWeight: 400,
+                background: 'none',
+                border: 'none',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px',
+                padding: 0,
+                fontFamily: 'Inter, sans-serif',
+                transition: 'color 0.2s ease'
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.color = '#cbd5e1'}
+              onMouseLeave={(e) => e.currentTarget.style.color = '#94a3b8'}
+            >
+              <HelpCircle size={18} />
+              <span>Help</span>
+            </button>
+
+            {/* Submit Request CTA - Only show on public pages */}
+            {!showUserMenu && (
+              <button
+                onClick={() => setIsRequestModalOpen(true)}
+                style={{
+                  background: 'linear-gradient(135deg, #A3E635 0%, #84cc16 100%)',
+                  color: '#1E2A38',
+                  fontSize: '14px',
+                  fontWeight: 600,
+                  padding: '10px 20px',
+                  borderRadius: '12px',
+                  border: 'none',
+                  boxShadow: '0px 6px 20px rgba(163, 230, 53, 0.25)',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  fontFamily: 'Inter, sans-serif',
+                  transition: 'box-shadow 0.2s ease'
+                }}
+                onMouseEnter={(e) => e.currentTarget.style.boxShadow = '0px 8px 24px rgba(163, 230, 53, 0.35)'}
+                onMouseLeave={(e) => e.currentTarget.style.boxShadow = '0px 6px 20px rgba(163, 230, 53, 0.25)'}
               >
-                <HelpCircle className="h-4 w-4 sm:mr-2" />
-                <span className="hidden sm:inline">Help</span>
-              </Button>
-
-              {/* Submit Request CTA - Only show on public pages */}
-              {!showUserMenu && (
-                <Button
-                  onClick={() => setIsRequestModalOpen(true)}
-                  className="bg-brand hover:bg-brand-dark text-white shadow-sm"
-                  size="sm"
-                >
-                  <Plus className="h-4 w-4 sm:mr-2" />
-                  <span className="hidden sm:inline">Submit an Application Request</span>
-                  <span className="sm:hidden">Submit Request</span>
-                </Button>
-              )}
-              
-              {/* User Menu - Only show in admin panel */}
-              {showUserMenu && user && (
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button variant="ghost" className="flex items-center space-x-2">
-                      <Avatar className="h-8 w-8">
-                        <AvatarFallback className="bg-brand text-white text-sm">
-                          {user.firstName.charAt(0).toUpperCase()}{user.lastName.charAt(0).toUpperCase()}
-                        </AvatarFallback>
-                      </Avatar>
-                      <span className="hidden md:block font-medium">
-                        {user.firstName} {user.lastName}
-                      </span>
-                      <ChevronDown className="h-4 w-4 text-gray-500" />
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent align="end">
-                    <DropdownMenuItem onClick={handleLogout}>
-                      Sign Out
-                    </DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
-              )}
-            </div>
+                <Plus size={18} />
+                <span>Submit an Application Request</span>
+              </button>
+            )}
+            
+            {/* User Menu - Only show in admin panel */}
+            {showUserMenu && user && (
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" className="flex items-center space-x-2">
+                    <Avatar className="h-8 w-8">
+                      <AvatarFallback className="bg-brand text-white text-sm">
+                        {user.firstName.charAt(0).toUpperCase()}{user.lastName.charAt(0).toUpperCase()}
+                      </AvatarFallback>
+                    </Avatar>
+                    <span className="hidden md:block font-medium" style={{ color: '#94a3b8' }}>
+                      {user.firstName} {user.lastName}
+                    </span>
+                    <ChevronDown className="h-4 w-4" style={{ color: '#94a3b8' }} />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end">
+                  <DropdownMenuItem onClick={handleLogout}>
+                    Sign Out
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            )}
           </div>
         </div>
       </nav>

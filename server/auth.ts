@@ -118,12 +118,12 @@ export function setupAuth(app: Express) {
     }
   });
 
-  app.post("/api/login", (req, res, next) => {
+  const handleLogin = (req: any, res: any, next: any) => {
     passport.authenticate("local", (err, user, info) => {
       if (err) return next(err);
       if (!user) return res.status(401).json({ message: info?.message || "Authentication failed" });
       
-      req.login(user, async (loginErr) => {
+      req.login(user, async (loginErr: any) => {
         if (loginErr) return next(loginErr);
         
         // Create activity log
@@ -135,9 +135,19 @@ export function setupAuth(app: Express) {
         
         // Return user without password
         const { password, ...userWithoutPassword } = user;
-        res.status(200).json(userWithoutPassword);
+        res.status(200).json({ user: userWithoutPassword });
       });
     })(req, res, next);
+  };
+
+  // Support both /api/login and /api/auth/login endpoints
+  app.post("/api/login", handleLogin);
+  app.post("/api/auth/login", (req, res, next) => {
+    // Convert email to username format for passport
+    if (req.body.email && !req.body.username) {
+      req.body.username = req.body.email;
+    }
+    handleLogin(req, res, next);
   });
 
   app.post("/api/logout", async (req, res, next) => {

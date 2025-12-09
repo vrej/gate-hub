@@ -135,19 +135,53 @@ export default function Applications() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div style={{
+      background: 'linear-gradient(145deg, #f0f4f8 0%, #e8eef5 100%)',
+      minHeight: '100vh',
+      fontFamily: 'Inter, sans-serif'
+    }}>
       <Navigation />
       
       {/* Hero Section */}
-      <section className="gradient-bg py-12 sm:py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 uppercase tracking-wide">
-              <span className="text-brand">{heroBanner?.brandName || "WhyBrands"}</span>{" "}
-              {heroBanner?.title?.replace(heroBanner?.brandName || "WhyBrands", "").trim() || "Application Portal"}
+      <section style={{
+        background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
+        boxShadow: '0px 8px 24px rgba(149, 157, 165, 0.15)',
+        padding: '48px 32px',
+        position: 'relative'
+      }}>
+        {/* Accent Line */}
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: '50%',
+          transform: 'translateX(-50%)',
+          width: '120px',
+          height: '4px',
+          background: 'linear-gradient(90deg, transparent, #A3E635, transparent)',
+          borderRadius: '0 0 4px 4px'
+        }} />
+        
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center">
+            <h1 style={{
+              fontFamily: 'Inter, sans-serif',
+              fontSize: '32px',
+              fontWeight: 500,
+              color: '#4a5568'
+            }}>
+              {heroBanner?.brandName && (
+                <span style={{ color: '#A3E635' }}>{heroBanner.brandName} </span>
+              )}
+              {heroBanner?.title || "Application Command Center"}
             </h1>
-            <p className="text-lg sm:text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed px-4">
-              {heroBanner?.subtitle || "Find and request access to approved software applications for your department."}
+            <p style={{
+              fontFamily: 'Inter, sans-serif',
+              fontSize: '16px',
+              fontWeight: 400,
+              color: '#a0aec0',
+              marginTop: '12px'
+            }}>
+              {heroBanner?.subtitle || "Your central hub for application discovery and access management"}
             </p>
           </div>
         </div>
@@ -158,157 +192,270 @@ export default function Applications() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* Search and Filter Bar */}
-          <div className="bg-gray-50 rounded-xl p-4 sm:p-6 mb-8">
-            {/* First Row - Search and Basic Filters */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-4">
-              {/* Search Input */}
-              <div className="sm:col-span-2 lg:col-span-2">
-                <div className="relative">
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
-                  <Input
-                    type="text"
-                    placeholder="Search applications..."
-                    value={searchQuery}
-                    onChange={(e) => { setSearchQuery(e.target.value); resetPage(); }}
-                    className="pl-10"
-                  />
-                </div>
-              </div>
-              
-              {/* Department Filter */}
-              <div>
-                <Select value={selectedDepartment} onValueChange={(value) => { setSelectedDepartment(value); resetPage(); }}>
-                  <SelectTrigger>
-                    <SelectValue placeholder="All Departments" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="all">All Departments</SelectItem>
-                    {departments.map((dept: any) => (
-                      <SelectItem key={dept.id} value={dept.name}>
-                        {dept.name}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
-
-              {/* Category Filter */}
-              <div>
-                <Select value={selectedCategory} onValueChange={(value) => { setSelectedCategory(value); resetPage(); }}>
-                  <SelectTrigger>
-                    <SelectValue placeholder="All Categories" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="all">All Categories</SelectItem>
-                    <SelectItem value="uncategorized">No Category</SelectItem>
-                    {categories.map((category: any) => (
-                      <SelectItem key={category.id} value={category.name}>
-                        <span>{category.name}</span>
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
-              
-              {/* Status Filter */}
-              <div>
-                <Select value={selectedStatus} onValueChange={(value) => { setSelectedStatus(value); resetPage(); }}>
-                  <SelectTrigger>
-                    <SelectValue placeholder="All Status" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="all">All Status</SelectItem>
-                    {statuses.map((status: any) => (
-                      <SelectItem key={status.id} value={status.name}>
-                        <div className="flex items-center gap-2">
-                          <span 
-                            className="w-2 h-2 rounded-full inline-block" 
-                            style={{ backgroundColor: status.color }}
-                          ></span>
-                          <span>
-                            {status.name.charAt(0).toUpperCase() + status.name.slice(1)}
-                          </span>
-                          {status.description && (
-                            <span className="text-xs text-gray-500 truncate max-w-[150px]">
-                              - {status.description}
-                            </span>
-                          )}
-                        </div>
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
+          <div style={{
+            background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
+            borderRadius: '16px',
+            padding: '20px 24px',
+            marginBottom: '24px',
+            boxShadow: '0px 8px 24px rgba(149, 157, 165, 0.15)',
+            display: 'flex',
+            flexDirection: 'row',
+            gap: '16px',
+            alignItems: 'center',
+            flexWrap: 'wrap'
+          }}>
+            {/* Search Input */}
+            <div style={{ flex: 1, minWidth: '250px', position: 'relative' }}>
+              <Search 
+                size={18} 
+                style={{
+                  position: 'absolute',
+                  left: '14px',
+                  top: '50%',
+                  transform: 'translateY(-50%)',
+                  color: '#a0aec0'
+                }} 
+              />
+              <input
+                type="text"
+                placeholder="Search applications..."
+                value={searchQuery}
+                onChange={(e) => { setSearchQuery(e.target.value); resetPage(); }}
+                style={{
+                  width: '100%',
+                  padding: '12px 12px 12px 44px',
+                  border: 'none',
+                  borderRadius: '12px',
+                  background: 'linear-gradient(135deg, #fafbfc 0%, #f1f5f9 100%)',
+                  boxShadow: '0px 4px 12px rgba(149, 157, 165, 0.1)',
+                  fontFamily: 'Inter, sans-serif',
+                  fontSize: '14px',
+                  color: '#4a5568',
+                  outline: 'none'
+                }}
+              />
             </div>
+            
+            {/* Department Filter */}
+            <Select value={selectedDepartment} onValueChange={(value) => { setSelectedDepartment(value); resetPage(); }}>
+              <SelectTrigger style={{
+                width: 'auto',
+                padding: '12px 16px',
+                border: 'none',
+                borderRadius: '12px',
+                background: 'linear-gradient(135deg, #fafbfc 0%, #f1f5f9 100%)',
+                boxShadow: '0px 4px 12px rgba(149, 157, 165, 0.1)',
+                fontFamily: 'Inter, sans-serif',
+                fontSize: '14px',
+                color: '#4a5568',
+                minWidth: '150px',
+                cursor: 'pointer'
+              }}>
+                <SelectValue placeholder="All Departments" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">All Departments</SelectItem>
+                {departments.map((dept: any) => (
+                  <SelectItem key={dept.id} value={dept.name}>
+                    {dept.name}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
 
-
-
-            {/* Sort Options, View Toggle and Clear Filters */}
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mt-4 pt-4 border-t border-gray-200 space-y-4 sm:space-y-0">
-              <div className="flex flex-wrap items-center gap-4">
-                <span className="text-sm font-medium text-gray-700">Sort by:</span>
-                <button
-                  onClick={() => setSortBy("name")}
-                  className={`text-sm font-medium ${
-                    sortBy === "name" ? "text-brand" : "text-gray-500 hover:text-brand"
-                  }`}
-                >
-                  Name
-                </button>
-                <button
-                  onClick={() => setSortBy("status")}
-                  className={`text-sm font-medium ${
-                    sortBy === "status" ? "text-brand" : "text-gray-500 hover:text-brand"
-                  }`}
-                >
-                  Status
-                </button>
-                {hasActiveFilters && (
-                  <button
-                    onClick={clearAllFilters}
-                    className="text-sm font-medium text-red-600 hover:text-red-700 ml-4"
-                  >
-                    Clear All Filters
-                  </button>
-                )}
-              </div>
-              
-              <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:space-x-4">
-                {/* View Toggle */}
-                <div className="flex items-center space-x-2">
-                  <span className="text-sm font-medium text-gray-700">View:</span>
-                  <div className="flex border border-gray-300 rounded-md">
-                    <button
-                      onClick={() => setViewMode("grid")}
-                      className={`p-2 ${
-                        viewMode === "grid" 
-                          ? "bg-brand text-white" 
-                          : "bg-white text-gray-500 hover:text-brand"
-                      }`}
-                    >
-                      <Grid3X3 className="h-4 w-4" />
-                    </button>
-                    <button
-                      onClick={() => setViewMode("list")}
-                      className={`p-2 ${
-                        viewMode === "list" 
-                          ? "bg-brand text-white" 
-                          : "bg-white text-gray-500 hover:text-brand"
-                      }`}
-                    >
-                      <List className="h-4 w-4" />
-                    </button>
-                  </div>
-                </div>
-                
-                <div className="text-sm text-gray-500">
-                  Showing {totalItems > 0 ? startIndex + 1 : 0}-{Math.min(startIndex + paginatedApplications.length, totalItems)} of {totalItems} applications
-                </div>
-              </div>
-            </div>
+            {/* Category Filter */}
+            <Select value={selectedCategory} onValueChange={(value) => { setSelectedCategory(value); resetPage(); }}>
+              <SelectTrigger style={{
+                width: 'auto',
+                padding: '12px 16px',
+                border: 'none',
+                borderRadius: '12px',
+                background: 'linear-gradient(135deg, #fafbfc 0%, #f1f5f9 100%)',
+                boxShadow: '0px 4px 12px rgba(149, 157, 165, 0.1)',
+                fontFamily: 'Inter, sans-serif',
+                fontSize: '14px',
+                color: '#4a5568',
+                minWidth: '150px',
+                cursor: 'pointer'
+              }}>
+                <SelectValue placeholder="All Categories" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">All Categories</SelectItem>
+                <SelectItem value="uncategorized">No Category</SelectItem>
+                {categories.map((category: any) => (
+                  <SelectItem key={category.id} value={category.name}>
+                    <span>{category.name}</span>
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+            
+            {/* Status Filter */}
+            <Select value={selectedStatus} onValueChange={(value) => { setSelectedStatus(value); resetPage(); }}>
+              <SelectTrigger style={{
+                width: 'auto',
+                padding: '12px 16px',
+                border: 'none',
+                borderRadius: '12px',
+                background: 'linear-gradient(135deg, #fafbfc 0%, #f1f5f9 100%)',
+                boxShadow: '0px 4px 12px rgba(149, 157, 165, 0.1)',
+                fontFamily: 'Inter, sans-serif',
+                fontSize: '14px',
+                color: '#4a5568',
+                minWidth: '150px',
+                cursor: 'pointer'
+              }}>
+                <SelectValue placeholder="All Status" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">All Status</SelectItem>
+                {statuses.map((status: any) => (
+                  <SelectItem key={status.id} value={status.name}>
+                    <div className="flex items-center gap-2">
+                      <span 
+                        className="w-2 h-2 rounded-full inline-block" 
+                        style={{ backgroundColor: status.color }}
+                      ></span>
+                      <span>
+                        {status.name.charAt(0).toUpperCase() + status.name.slice(1)}
+                      </span>
+                      {status.description && (
+                        <span className="text-xs text-gray-500 truncate max-w-[150px]">
+                          - {status.description}
+                        </span>
+                      )}
+                    </div>
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
           </div>
 
-
+          {/* Sort Options, View Toggle and Clear Filters */}
+          <div style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            marginBottom: '20px',
+            padding: '0 4px',
+            flexWrap: 'wrap',
+            gap: '16px'
+          }}>
+            {/* Left Side - Sort Controls */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+              <span style={{
+                fontFamily: 'Inter, sans-serif',
+                fontSize: '14px',
+                color: '#a0aec0',
+                fontWeight: 400
+              }}>Sort by:</span>
+              <button
+                onClick={() => setSortBy("name")}
+                style={{
+                  fontFamily: 'Inter, sans-serif',
+                  fontSize: '14px',
+                  color: sortBy === "name" ? '#A3E635' : '#a0aec0',
+                  fontWeight: sortBy === "name" ? 500 : 400,
+                  background: 'transparent',
+                  border: 'none',
+                  cursor: 'pointer'
+                }}
+              >
+                Name
+              </button>
+              <button
+                onClick={() => setSortBy("status")}
+                style={{
+                  fontFamily: 'Inter, sans-serif',
+                  fontSize: '14px',
+                  color: sortBy === "status" ? '#A3E635' : '#a0aec0',
+                  fontWeight: sortBy === "status" ? 500 : 400,
+                  background: 'transparent',
+                  border: 'none',
+                  cursor: 'pointer'
+                }}
+              >
+                Status
+              </button>
+              {hasActiveFilters && (
+                <button
+                  onClick={clearAllFilters}
+                  style={{
+                    fontFamily: 'Inter, sans-serif',
+                    fontSize: '14px',
+                    color: '#ef4444',
+                    fontWeight: 400,
+                    background: 'transparent',
+                    border: 'none',
+                    cursor: 'pointer',
+                    marginLeft: '8px'
+                  }}
+                >
+                  Clear All Filters
+                </button>
+              )}
+            </div>
+            
+            {/* Right Side - View Controls */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+              <span style={{
+                fontFamily: 'Inter, sans-serif',
+                fontSize: '14px',
+                color: '#a0aec0'
+              }}>View:</span>
+              
+              {/* View Toggle Buttons */}
+              <div style={{
+                display: 'flex',
+                background: 'linear-gradient(135deg, #fafbfc 0%, #f1f5f9 100%)',
+                borderRadius: '12px',
+                padding: '4px',
+                boxShadow: '0px 4px 12px rgba(149, 157, 165, 0.1)'
+              }}>
+                <button
+                  onClick={() => setViewMode("grid")}
+                  style={{
+                    padding: '8px',
+                    border: 'none',
+                    borderRadius: '8px',
+                    cursor: 'pointer',
+                    background: viewMode === "grid" ? '#A3E635' : 'transparent',
+                    color: viewMode === "grid" ? '#1E2A38' : '#a0aec0',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                  }}
+                >
+                  <Grid3X3 className="h-4 w-4" />
+                </button>
+                <button
+                  onClick={() => setViewMode("list")}
+                  style={{
+                    padding: '8px',
+                    border: 'none',
+                    borderRadius: '8px',
+                    cursor: 'pointer',
+                    background: viewMode === "list" ? '#A3E635' : 'transparent',
+                    color: viewMode === "list" ? '#1E2A38' : '#a0aec0',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                  }}
+                >
+                  <List className="h-4 w-4" />
+                </button>
+              </div>
+              
+              <span style={{
+                fontFamily: 'Inter, sans-serif',
+                fontSize: '14px',
+                color: '#a0aec0'
+              }}>
+                Showing {totalItems > 0 ? startIndex + 1 : 0}-{Math.min(startIndex + paginatedApplications.length, totalItems)} of {totalItems} applications
+              </span>
+            </div>
+          </div>
 
           {/* Applications Display */}
           {isLoading ? (

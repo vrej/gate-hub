@@ -153,3 +153,748 @@
     max-height: calc(100vh - 2rem);
   }
 }
+
+/* ============================================
+   GLOBAL MODAL STYLING SYSTEM - Soft UI Theme
+   Applies to ALL modals throughout the application
+   ============================================ */
+
+/* GLOBAL MODAL OVERLAY */
+[data-radix-dialog-overlay] {
+  background: rgba(30, 42, 56, 0.5) !important;
+  z-index: 100 !important;
+}
+
+/* GLOBAL MODAL CONTAINER */
+[data-radix-dialog-content] {
+  position: relative !important;
+  z-index: 101 !important;
+  pointer-events: auto !important;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%) !important;
+  border-radius: 24px !important;
+  box-shadow: 0px 8px 24px rgba(149, 157, 165, 0.15) !important;
+  padding: 32px !important;
+  font-family: Inter, sans-serif !important;
+  border: none !important;
+}
+
+/* GLOBAL CLOSE X BUTTON */
+[data-radix-dialog-content] button[class*="absolute"][class*="right"] {
+  color: #a0aec0 !important;
+  transition: color 0.2s ease !important;
+}
+
+[data-radix-dialog-content] button[class*="absolute"][class*="right"]:hover {
+  color: #4a5568 !important;
+}
+
+/* GLOBAL MODAL TITLES */
+[data-radix-dialog-content] [class*="DialogTitle"],
+[data-radix-dialog-content] h2[class*="font-semibold"],
+[data-radix-dialog-content] h2[class*="text-lg"] {
+  font-family: Inter, sans-serif !important;
+  font-size: 20px !important;
+  font-weight: 600 !important;
+  color: #4a5568 !important;
+}
+
+/* GLOBAL MODAL SUBTITLES/DESCRIPTIONS */
+[data-radix-dialog-content] [class*="DialogDescription"],
+[data-radix-dialog-content] p[class*="text-sm"][class*="text-gray"],
+[data-radix-dialog-content] p[class*="text-muted"] {
+  font-family: Inter, sans-serif !important;
+  font-size: 14px !important;
+  color: #a0aec0 !important;
+}
+
+/* GLOBAL SECTION CARDS (Card components within modals) */
+[data-radix-dialog-content] [class*="rounded-lg"][class*="border"][class*="bg-card"],
+[data-radix-dialog-content] [class*="Card"] {
+  background: linear-gradient(135deg, #fafbfc 0%, #f1f5f9 100%) !important;
+  border-radius: 16px !important;
+  box-shadow: 0px 4px 12px rgba(149, 157, 165, 0.1) !important;
+  border: none !important;
+}
+
+/* GLOBAL SECTION TITLES (CardTitle) */
+[data-radix-dialog-content] [class*="CardTitle"],
+[data-radix-dialog-content] h3[class*="font-semibold"] {
+  font-family: Inter, sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  color: #4a5568 !important;
+}
+
+/* GLOBAL FORM LABELS */
+[data-radix-dialog-content] label,
+[data-radix-dialog-content] [class*="Label"] {
+  font-family: Inter, sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  color: #a0aec0 !important;
+}
+
+/* GLOBAL FORM INPUTS */
+[data-radix-dialog-content] input:not([type="checkbox"]):not([type="radio"]):not([type="file"]),
+[data-radix-dialog-content] [class*="Input"] {
+  background: #ffffff !important;
+  border: 1px solid #e8eef5 !important;
+  border-radius: 12px !important;
+  padding: 12px 16px !important;
+  font-family: Inter, sans-serif !important;
+  font-size: 14px !important;
+  color: #4a5568 !important;
+}
+
+[data-radix-dialog-content] input::placeholder,
+[data-radix-dialog-content] textarea::placeholder {
+  color: #a0aec0 !important;
+}
+
+[data-radix-dialog-content] input:focus:not([type="checkbox"]):not([type="radio"]),
+[data-radix-dialog-content] textarea:focus {
+  border-color: #A3E635 !important;
+  box-shadow: 0px 4px 12px rgba(163, 230, 53, 0.15) !important;
+  outline: none !important;
+}
+
+/* GLOBAL TEXTAREAS */
+[data-radix-dialog-content] textarea,
+[data-radix-dialog-content] [class*="Textarea"] {
+  background: #ffffff !important;
+  border: 1px solid #e8eef5 !important;
+  border-radius: 12px !important;
+  padding: 12px 16px !important;
+  font-family: Inter, sans-serif !important;
+  font-size: 14px !important;
+  color: #4a5568 !important;
+}
+
+/* GLOBAL SELECT TRIGGERS */
+[data-radix-dialog-content] [class*="SelectTrigger"],
+[data-radix-dialog-content] select {
+  background: #ffffff !important;
+  border: 1px solid #e8eef5 !important;
+  border-radius: 12px !important;
+  padding: 12px 16px !important;
+  font-family: Inter, sans-serif !important;
+  font-size: 14px !important;
+  color: #4a5568 !important;
+  cursor: pointer !important;
+}
+
+[data-radix-dialog-content] [class*="SelectTrigger"]:focus,
+[data-radix-dialog-content] select:focus {
+  border-color: #A3E635 !important;
+  box-shadow: 0px 4px 12px rgba(163, 230, 53, 0.15) !important;
+  outline: none !important;
+}
+
+/* GLOBAL CHECKBOXES */
+[data-radix-dialog-content] input[type="checkbox"],
+[data-radix-dialog-content] [class*="Checkbox"] {
+  accent-color: #A3E635 !important;
+}
+
+[data-radix-dialog-content] [data-state="checked"] {
+  background-color: #A3E635 !important;
+  border-color: #A3E635 !important;
+}
+
+/* GLOBAL PRIMARY BUTTONS */
+[data-radix-dialog-content] button[class*="bg-primary"],
+[data-radix-dialog-content] button[class*="bg-brand"],
+[data-radix-dialog-content] button[type="submit"]:not([class*="outline"]):not([class*="ghost"]):not([class*="destructive"]),
+.global-primary-btn {
+  background: linear-gradient(135deg, #A3E635 0%, #84cc16 100%) !important;
+  border: none !important;
+  border-radius: 12px !important;
+  padding: 10px 20px !important;
+  font-family: Inter, sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: #1E2A38 !important;
+  box-shadow: 0px 6px 20px rgba(163, 230, 53, 0.25) !important;
+  cursor: pointer !important;
+}
+
+[data-radix-dialog-content] button[class*="bg-primary"]:hover,
+[data-radix-dialog-content] button[class*="bg-brand"]:hover,
+.global-primary-btn:hover {
+  opacity: 0.9 !important;
+}
+
+/* GLOBAL SECONDARY BUTTONS */
+[data-radix-dialog-content] button[class*="outline"]:not([class*="destructive"]),
+[data-radix-dialog-content] button[class*="variant-outline"],
+.global-secondary-btn {
+  background: transparent !important;
+  border: 2px solid #a0aec0 !important;
+  border-radius: 12px !important;
+  padding: 10px 20px !important;
+  font-family: Inter, sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: #4a5568 !important;
+  cursor: pointer !important;
+}
+
+[data-radix-dialog-content] button[class*="outline"]:not([class*="destructive"]):hover,
+.global-secondary-btn:hover {
+  border-color: #4a5568 !important;
+}
+
+/* GLOBAL DANGER BUTTONS */
+[data-radix-dialog-content] button[class*="destructive"],
+[data-radix-dialog-content] button[class*="text-red"],
+.global-danger-btn {
+  background: transparent !important;
+  border: 2px solid #ef4444 !important;
+  border-radius: 12px !important;
+  padding: 10px 20px !important;
+  font-family: Inter, sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: #ef4444 !important;
+  cursor: pointer !important;
+}
+
+[data-radix-dialog-content] button[class*="destructive"]:hover,
+[data-radix-dialog-content] button[class*="text-red"]:hover,
+.global-danger-btn:hover {
+  background: rgba(239, 68, 68, 0.1) !important;
+}
+
+/* GLOBAL TABLE HEADERS */
+[data-radix-dialog-content] th,
+[data-radix-dialog-content] [class*="TableHead"] {
+  font-family: Inter, sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  color: #a0aec0 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  padding: 12px 16px !important;
+  border-bottom: 1px solid #e8eef5 !important;
+  background: transparent !important;
+}
+
+/* GLOBAL TABLE ROWS */
+[data-radix-dialog-content] tbody tr,
+[data-radix-dialog-content] [class*="TableRow"] {
+  background: #ffffff !important;
+  font-family: Inter, sans-serif !important;
+  font-size: 14px !important;
+  color: #4a5568 !important;
+  border-bottom: 1px solid #f1f5f9 !important;
+  transition: background 0.2s ease !important;
+}
+
+[data-radix-dialog-content] tbody tr:hover,
+[data-radix-dialog-content] [class*="TableRow"]:hover {
+  background: linear-gradient(135deg, #fafbfc 0%, #f1f5f9 100%) !important;
+}
+
+/* GLOBAL TABLE CELLS */
+[data-radix-dialog-content] td,
+[data-radix-dialog-content] [class*="TableCell"] {
+  padding: 16px !important;
+  font-family: Inter, sans-serif !important;
+  font-size: 14px !important;
+  color: #4a5568 !important;
+}
+
+/* GLOBAL TABLE LINKS */
+[data-radix-dialog-content] td a,
+[data-radix-dialog-content] [class*="TableCell"] a {
+  color: #A3E635 !important;
+}
+
+[data-radix-dialog-content] td a:hover,
+[data-radix-dialog-content] [class*="TableCell"] a:hover {
+  text-decoration: underline !important;
+}
+
+/* GLOBAL ACTION ICONS (edit, view) */
+[data-radix-dialog-content] button[class*="ghost"] svg,
+[data-radix-dialog-content] button[class*="icon"] svg,
+.global-action-icon {
+  color: #a0aec0 !important;
+  transition: color 0.2s ease !important;
+}
+
+[data-radix-dialog-content] button[class*="ghost"]:not([class*="text-red"]):hover svg,
+[data-radix-dialog-content] button[class*="icon"]:not([class*="text-red"]):hover svg,
+.global-action-icon:hover {
+  color: #A3E635 !important;
+}
+
+/* GLOBAL DELETE ICONS */
+[data-radix-dialog-content] button[class*="text-red"] svg,
+[data-radix-dialog-content] button[class*="destructive"] svg,
+.global-delete-icon {
+  color: #a0aec0 !important;
+  transition: color 0.2s ease !important;
+}
+
+[data-radix-dialog-content] button[class*="text-red"]:hover svg,
+[data-radix-dialog-content] button[class*="destructive"]:hover svg,
+.global-delete-icon:hover {
+  color: #ef4444 !important;
+}
+
+/* GLOBAL MODAL CONTAINER - overflow hidden to clip to rounded corners */
+[data-radix-dialog-content] {
+  overflow: hidden !important;
+}
+
+/* GLOBAL SCROLLBAR - applied to inner scroll content */
+[data-radix-dialog-content] .modal-scroll-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+[data-radix-dialog-content] .modal-scroll-content::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 4px;
+  margin: 8px 0;
+}
+
+[data-radix-dialog-content] .modal-scroll-content::-webkit-scrollbar-thumb {
+  background: #A3E635;
+  border-radius: 4px;
+}
+
+[data-radix-dialog-content] .modal-scroll-content::-webkit-scrollbar-thumb:hover {
+  background: #84cc16;
+}
+
+/* Firefox scrollbar support for modal inner scroll content */
+[data-radix-dialog-content] .modal-scroll-content {
+  scrollbar-width: thin;
+  scrollbar-color: #A3E635 #f1f5f9;
+}
+
+/* GLOBAL ERROR TEXT */
+[data-radix-dialog-content] [class*="text-red"],
+[data-radix-dialog-content] [class*="text-destructive"],
+[data-radix-dialog-content] .error-text,
+.global-error-text {
+  color: #ef4444 !important;
+  font-family: Inter, sans-serif !important;
+  font-size: 12px !important;
+}
+
+/* GLOBAL SUCCESS TEXT */
+[data-radix-dialog-content] [class*="text-green"],
+[data-radix-dialog-content] .success-text,
+.global-success-text {
+  color: #A3E635 !important;
+  font-family: Inter, sans-serif !important;
+  font-size: 12px !important;
+}
+
+/* GLOBAL LINK TEXT */
+[data-radix-dialog-content] a:not([class*="Button"]),
+.global-link {
+  color: #A3E635 !important;
+  cursor: pointer !important;
+}
+
+[data-radix-dialog-content] a:not([class*="Button"]):hover,
+.global-link:hover {
+  text-decoration: underline !important;
+}
+
+/* GLOBAL BADGE STYLING */
+[data-radix-dialog-content] [class*="Badge"] {
+  font-family: Inter, sans-serif !important;
+  font-size: 12px !important;
+  border-radius: 8px !important;
+}
+
+/* GLOBAL LOADING SPINNER */
+[data-radix-dialog-content] [class*="animate-spin"] {
+  color: #A3E635 !important;
+}
+
+/* GLOBAL CLOSE BUTTON STYLING */
+.global-close-btn {
+  color: #a0aec0 !important;
+  transition: color 0.2s ease !important;
+}
+
+.global-close-btn:hover {
+  color: #4a5568 !important;
+}
+
+/* GLOBAL ICON BUTTON STYLING */
+.global-icon-btn {
+  background: linear-gradient(135deg, #fafbfc 0%, #f1f5f9 100%) !important;
+  border: 1px solid #e8eef5 !important;
+  border-radius: 8px !important;
+  padding: 8px !important;
+  color: #a0aec0 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+}
+
+.global-icon-btn:hover {
+  color: #A3E635 !important;
+  border-color: #A3E635 !important;
+}
+
+/* GLOBAL CARD STYLING */
+.global-section-card {
+  background: linear-gradient(135deg, #fafbfc 0%, #f1f5f9 100%) !important;
+  border-radius: 16px !important;
+  padding: 20px 24px !important;
+  box-shadow: 0px 4px 12px rgba(149, 157, 165, 0.1) !important;
+  border: none !important;
+}
+
+/* GLOBAL SECTION TITLE */
+.global-section-title {
+  font-family: Inter, sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  color: #4a5568 !important;
+  margin-bottom: 16px !important;
+}
+
+/* GLOBAL FORM LABEL */
+.global-form-label {
+  font-family: Inter, sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  color: #a0aec0 !important;
+  display: block !important;
+  margin-bottom: 6px !important;
+}
+
+/* GLOBAL FORM INPUT */
+.global-form-input {
+  background: #ffffff !important;
+  border: 1px solid #e8eef5 !important;
+  border-radius: 12px !important;
+  padding: 12px 16px !important;
+  font-family: Inter, sans-serif !important;
+  font-size: 14px !important;
+  color: #4a5568 !important;
+  width: 100% !important;
+  outline: none !important;
+}
+
+.global-form-input::placeholder {
+  color: #a0aec0 !important;
+}
+
+.global-form-input:focus {
+  border-color: #A3E635 !important;
+  box-shadow: 0px 4px 12px rgba(163, 230, 53, 0.15) !important;
+}
+
+/* GLOBAL INPUT FOCUS */
+.global-input:focus,
+.global-textarea:focus {
+  border-color: #A3E635 !important;
+  box-shadow: 0px 4px 12px rgba(163, 230, 53, 0.15) !important;
+}
+
+.global-input::placeholder,
+.global-textarea::placeholder {
+  color: #a0aec0 !important;
+}
+
+/* GLOBAL TABLE STYLING */
+.global-table-header {
+  font-family: Inter, sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  color: #a0aec0 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  padding: 12px 16px !important;
+  border-bottom: 1px solid #e8eef5 !important;
+}
+
+.global-table-row {
+  background: #ffffff !important;
+  font-family: Inter, sans-serif !important;
+  font-size: 14px !important;
+  color: #4a5568 !important;
+  border-bottom: 1px solid #f1f5f9 !important;
+  transition: background 0.2s ease !important;
+}
+
+.global-table-row:hover {
+  background: linear-gradient(135deg, #fafbfc 0%, #f1f5f9 100%) !important;
+}
+
+/* ============================================
+   END OF GLOBAL MODAL STYLING SYSTEM
+   ============================================ */
+
+/* Soft UI Dropdown Select Styling */
+.soft-ui-select-item:hover {
+  background: linear-gradient(135deg, #fafbfc 0%, #f1f5f9 100%) !important;
+}
+
+.soft-ui-select-item[data-state="checked"] {
+  background: rgba(163, 230, 53, 0.15) !important;
+  color: #4a5568 !important;
+}
+
+.soft-ui-select-item:focus {
+  background: linear-gradient(135deg, #fafbfc 0%, #f1f5f9 100%) !important;
+}
+
+/* Ensure Select Portal appears above modals */
+[data-radix-select-content] {
+  z-index: 9999 !important;
+}
+
+/* Select Trigger Focus State */
+[data-radix-select-trigger]:focus {
+  border-color: #A3E635 !important;
+  box-shadow: 0px 4px 12px rgba(163, 230, 53, 0.15) !important;
+  outline: none !important;
+}
+
+/* Manage Applications Modal Styling */
+.manage-apps-modal [data-radix-dialog-overlay] {
+  background: rgba(30, 42, 56, 0.5) !important;
+}
+
+.manage-apps-modal-content {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%) !important;
+  border-radius: 24px !important;
+  box-shadow: 0px 8px 24px rgba(149, 157, 165, 0.15) !important;
+  padding: 32px !important;
+  border: none !important;
+}
+
+.manage-apps-modal-title {
+  font-family: Inter, sans-serif !important;
+  font-size: 20px !important;
+  font-weight: 600 !important;
+  color: #4a5568 !important;
+  margin-bottom: 24px !important;
+}
+
+.manage-apps-section-card {
+  background: linear-gradient(135deg, #fafbfc 0%, #f1f5f9 100%) !important;
+  border-radius: 16px !important;
+  padding: 20px 24px !important;
+  box-shadow: 0px 4px 12px rgba(149, 157, 165, 0.1) !important;
+  margin-bottom: 24px !important;
+  border: none !important;
+}
+
+.manage-apps-section-title {
+  font-family: Inter, sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  color: #4a5568 !important;
+  margin-bottom: 16px !important;
+}
+
+.manage-apps-label {
+  font-family: Inter, sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  color: #a0aec0 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  margin-bottom: 6px !important;
+  display: block !important;
+}
+
+.manage-apps-input {
+  background: #ffffff !important;
+  border: 1px solid #e8eef5 !important;
+  border-radius: 12px !important;
+  padding: 12px 16px !important;
+  font-family: Inter, sans-serif !important;
+  font-size: 14px !important;
+  color: #4a5568 !important;
+}
+
+.manage-apps-input::placeholder {
+  color: #a0aec0 !important;
+}
+
+.manage-apps-input:focus {
+  border-color: #A3E635 !important;
+  box-shadow: 0px 4px 12px rgba(163, 230, 53, 0.15) !important;
+  outline: none !important;
+}
+
+.manage-apps-icon-btn {
+  background: linear-gradient(135deg, #fafbfc 0%, #f1f5f9 100%) !important;
+  border: 1px solid #e8eef5 !important;
+  border-radius: 8px !important;
+  padding: 8px !important;
+  color: #a0aec0 !important;
+  cursor: pointer !important;
+}
+
+.manage-apps-icon-btn:hover {
+  color: #A3E635 !important;
+  border-color: #A3E635 !important;
+}
+
+.manage-apps-ai-link {
+  font-family: Inter, sans-serif !important;
+  font-size: 12px !important;
+  color: #A3E635 !important;
+  cursor: pointer !important;
+}
+
+.manage-apps-ai-link:hover {
+  text-decoration: underline !important;
+}
+
+.manage-apps-unselect-link {
+  font-family: Inter, sans-serif !important;
+  font-size: 12px !important;
+  color: #A3E635 !important;
+  cursor: pointer !important;
+  background: none !important;
+  border: none !important;
+}
+
+.manage-apps-error-text {
+  font-family: Inter, sans-serif !important;
+  font-size: 12px !important;
+  color: #ef4444 !important;
+}
+
+.manage-apps-checkbox-label {
+  font-family: Inter, sans-serif !important;
+  font-size: 14px !important;
+  color: #4a5568 !important;
+}
+
+.manage-apps-checkbox {
+  accent-color: #A3E635 !important;
+}
+
+.manage-apps-file-btn {
+  background: linear-gradient(135deg, #fafbfc 0%, #f1f5f9 100%) !important;
+  border: 1px solid #e8eef5 !important;
+  border-radius: 12px !important;
+  padding: 10px 16px !important;
+  font-family: Inter, sans-serif !important;
+  font-size: 14px !important;
+  color: #4a5568 !important;
+  cursor: pointer !important;
+}
+
+.manage-apps-file-btn:hover {
+  border-color: #A3E635 !important;
+}
+
+.manage-apps-cancel-btn {
+  background: transparent !important;
+  border: 2px solid #a0aec0 !important;
+  border-radius: 12px !important;
+  padding: 10px 20px !important;
+  font-family: Inter, sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: #4a5568 !important;
+  cursor: pointer !important;
+}
+
+.manage-apps-cancel-btn:hover {
+  border-color: #4a5568 !important;
+}
+
+.manage-apps-submit-btn {
+  background: linear-gradient(135deg, #A3E635 0%, #84cc16 100%) !important;
+  border: none !important;
+  border-radius: 12px !important;
+  padding: 10px 20px !important;
+  font-family: Inter, sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: #1E2A38 !important;
+  box-shadow: 0px 6px 20px rgba(163, 230, 53, 0.25) !important;
+  cursor: pointer !important;
+}
+
+.manage-apps-clear-btn {
+  background: transparent !important;
+  border: 2px solid #A3E635 !important;
+  border-radius: 12px !important;
+  padding: 8px 16px !important;
+  font-family: Inter, sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: #4a5568 !important;
+  cursor: pointer !important;
+}
+
+.manage-apps-clear-btn:hover {
+  background: rgba(163, 230, 53, 0.1) !important;
+}
+
+/* Admin Dashboard Action Button Hover Styling */
+.admin-action-btn:hover {
+  color: #A3E635 !important;
+}
+
+.admin-action-btn:hover .admin-action-icon {
+  color: #A3E635 !important;
+}
+
+/* View All Button Hover Styling */
+.view-all-btn:hover {
+  background: rgba(163, 230, 53, 0.1) !important;
+}
+
+/* Soft UI Dropdown Menu Styling */
+.soft-ui-dropdown-item:hover {
+  background: linear-gradient(135deg, #fafbfc 0%, #f1f5f9 100%) !important;
+}
+
+.soft-ui-dropdown-item:focus {
+  background: linear-gradient(135deg, #fafbfc 0%, #f1f5f9 100%) !important;
+}
+
+.soft-ui-dropdown-item[data-state="checked"] {
+  background: rgba(163, 230, 53, 0.15) !important;
+  color: #4a5568 !important;
+}
+
+/* Custom Modal Scrollbar Styling - Inner Scroll Content */
+.modal-scroll-content::-webkit-scrollbar,
+.modal-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-scroll-content::-webkit-scrollbar-track,
+.modal-scrollbar::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 4px;
+  margin: 8px 0;
+}
+
+.modal-scroll-content::-webkit-scrollbar-thumb,
+.modal-scrollbar::-webkit-scrollbar-thumb {
+  background: #A3E635;
+  border-radius: 4px;
+}
+
+.modal-scroll-content::-webkit-scrollbar-thumb:hover,
+.modal-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #84cc16;
+}
+
+/* Firefox scrollbar support for modal scroll content */
+.modal-scroll-content,
+.modal-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #A3E635 #f1f5f9;
+  scrollbar-gutter: stable;
+}

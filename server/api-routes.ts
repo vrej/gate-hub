@@ -4,7 +4,7 @@ import multer from 'multer';
 import { parse } from 'csv-parse';
 import { stringify } from 'csv-stringify';
 import { createObjectCsvStringifier } from 'csv-writer';
-import { insertApplicationSchema } from '@shared/schema';
+import { insertApplicationSchema, heroBannerSchema } from '@shared/schema';
 import { z } from 'zod';
 
 // Configure multer for file uploads
@@ -15,7 +15,30 @@ const upload = multer({
   }
 });
 
-// We've replaced this with direct Zod validation in the import handler
+// In-memory storage for hero banner (persists while server is running)
+let heroBannerData = [
+  {
+    id: 1,
+    title: "Application Command Center",
+    subtitle: "Find and request access to approved software applications for your department.",
+    brandName: "GateHub",
+    isActive: true,
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString()
+  }
+];
+
+// In-memory storage for help content
+let helpContentData = [
+  {
+    id: 1,
+    title: "Help & Support",
+    content: "Welcome to GateHub! This portal helps you discover and request access to approved software applications.",
+    isActive: true,
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString()
+  }
+];
 
 export const apiRouter = Router();
 
@@ -238,6 +261,156 @@ apiRouter.get('/export-csv', async (req: Request, res: Response, next: NextFunct
     res.write(header);
     res.write(records);
     res.end();
+  } catch (error) {
+    next(error);
+  }
+});
+
+// ============================================
+// HERO BANNER API ROUTES
+// ============================================
+
+// Get active hero banner (public)
+apiRouter.get('/hero-banner', async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const activeBanner = heroBannerData.find(b => b.isActive) || heroBannerData[0];
+    res.json(activeBanner);
+  } catch (error) {
+    next(error);
+  }
+});
+
+// Get all hero banners (admin)
+apiRouter.get('/hero-banner/admin', async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    res.json(heroBannerData);
+  } catch (error) {
+    next(error);
+  }
+});
+
+// Update hero banner
+apiRouter.put('/hero-banner/:id', async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const id = parseInt(req.params.id);
+    
+    // Handle "undefined" as ID (when no ID is passed)
+    if (isNaN(id)) {
+      // Update the first/active banner
+      const index = heroBannerData.findIndex(b => b.isActive) || 0;
+      if (index >= 0) {
+        heroBannerData[index] = {
+          ...heroBannerData[index],
+          ...req.body,
+          updatedAt: new Date().toISOString()
+        };
+        return res.json(heroBannerData[index]);
+      }
+      return res.status(404).json({ message: 'Hero banner not found' });
+    }
+    
+    const index = heroBannerData.findIndex(b => b.id === id);
+    if (index === -1) {
+      return res.status(404).json({ message: 'Hero banner not found' });
+    }
+    
+    // If setting this banner as active, deactivate others
+    if (req.body.isActive) {
+      heroBannerData.forEach(b => b.isActive = false);
+    }
+    
+    heroBannerData[index] = {
+      ...heroBannerData[index],
+      ...req.body,
+      updatedAt: new Date().toISOString()
+    };
+    
+    res.json(heroBannerData[index]);
+  } catch (error) {
+    next(error);
+  }
+});
+
+// Create hero banner
+apiRouter.post('/hero-banner', async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const newId = heroBannerData.length > 0 ? Math.max(...heroBannerData.map(b => b.id)) + 1 : 1;
+    const newBanner = {
+      id: newId,
+      ...req.body,
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString()
+    };
+    
+    // If setting this banner as active, deactivate others
+    if (newBanner.isActive) {
+      heroBannerData.forEach(b => b.isActive = false);
+    }
+    
+    heroBannerData.push(newBanner);
+    res.status(201).json(newBanner);
+  } catch (error) {
+    next(error);
+  }
+});
+
+// ============================================
+// HELP CONTENT API ROUTES
+// ============================================
+
+// Get active help content (public)
+apiRouter.get('/help-content', async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const activeContent = helpContentData.find(h => h.isActive) || helpContentData[0];
+    res.json(activeContent);
+  } catch (error) {
+    next(error);
+  }
+});
+
+// Get all help content (admin)
+apiRouter.get('/help-content/admin', async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    res.json(helpContentData);
+  } catch (error) {
+    next(error);
+  }
+});
+
+// Update help content
+apiRouter.put('/help-content/:id', async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const id = parseInt(req.params.id);
+    
+    if (isNaN(id)) {
+      const index = helpContentData.findIndex(h => h.isActive) || 0;
+      if (index >= 0) {
+        helpContentData[index] = {
+          ...helpContentData[index],
+          ...req.body,
+          updatedAt: new Date().toISOString()
+        };
+        return res.json(helpContentData[index]);
+      }
+      return res.status(404).json({ message: 'Help content not found' });
+    }
+    
+    const index = helpContentData.findIndex(h => h.id === id);
+    if (index === -1) {
+      return res.status(404).json({ message: 'Help content not found' });
+    }
+    
+    if (req.body.isActive) {
+      helpContentData.forEach(h => h.isActive = false);
+    }
+    
+    helpContentData[index] = {
+      ...helpContentData[index],
+      ...req.body,
+      updatedAt: new Date().toISOString()
+    };
+    
+    res.json(helpContentData[index]);
   } catch (error) {
     next(error);
   }

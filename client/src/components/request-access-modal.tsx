@@ -1,10 +1,5 @@
 import { useState } from "react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { X } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -80,134 +75,262 @@ export default function RequestAccessModal({ isOpen, onClose, application }: Req
     });
   };
 
+  const [closeHovered, setCloseHovered] = useState(false);
+
+  const inputStyle: React.CSSProperties = {
+    background: 'linear-gradient(135deg, #fafbfc 0%, #f1f5f9 100%)',
+    border: 'none',
+    borderRadius: '12px',
+    padding: '12px 16px',
+    fontFamily: 'Inter, sans-serif',
+    fontSize: '14px',
+    color: '#4a5568',
+    boxShadow: '0px 4px 12px rgba(149, 157, 165, 0.1)',
+    width: '100%',
+    outline: 'none'
+  };
+
+  const labelStyle: React.CSSProperties = {
+    fontFamily: 'Inter, sans-serif',
+    fontSize: '14px',
+    fontWeight: 500,
+    color: '#4a5568',
+    marginBottom: '6px',
+    display: 'block'
+  };
+
+  if (!isOpen) return null;
+
   return (
-    <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-[90vw] sm:max-w-[420px] max-h-[90vh] overflow-y-auto">
-        <DialogHeader className="pb-2">
-          <DialogTitle className="text-lg font-semibold text-gray-900">
+    <div
+      style={{
+        position: 'fixed',
+        inset: 0,
+        background: 'rgba(30, 42, 56, 0.5)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        zIndex: 50
+      }}
+      onClick={(e) => {
+        if (e.target === e.currentTarget) onClose();
+      }}
+    >
+      <div
+        style={{
+          background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
+          borderRadius: '24px',
+          boxShadow: '0px 8px 24px rgba(149, 157, 165, 0.15)',
+          maxWidth: '420px',
+          width: '90vw',
+          maxHeight: '90vh',
+          overflow: 'hidden',
+          position: 'relative'
+        }}
+      >
+        {/* Close Button - Outside scrollable area */}
+        <button
+          onClick={onClose}
+          onMouseEnter={() => setCloseHovered(true)}
+          onMouseLeave={() => setCloseHovered(false)}
+          style={{
+            position: 'absolute',
+            top: '16px',
+            right: '16px',
+            background: 'none',
+            border: 'none',
+            cursor: 'pointer',
+            padding: '4px',
+            color: closeHovered ? '#4a5568' : '#a0aec0',
+            transition: 'color 0.2s',
+            zIndex: 10
+          }}
+        >
+          <X size={20} />
+        </button>
+
+        {/* Inner Scrollable Content */}
+        <div
+          className="modal-scroll-content"
+          style={{
+            padding: '32px',
+            paddingRight: '16px',
+            maxHeight: 'calc(90vh - 64px)',
+            overflowY: 'auto'
+          }}
+        >
+        {/* Header */}
+        <div style={{ marginBottom: '24px', paddingRight: '24px' }}>
+          <h2 style={{
+            fontFamily: 'Inter, sans-serif',
+            fontSize: '20px',
+            fontWeight: 600,
+            color: '#4a5568',
+            margin: 0
+          }}>
             Request Access to {application?.name}
-          </DialogTitle>
-          <p className="text-sm text-gray-600 mt-1">
+          </h2>
+          <p style={{
+            fontFamily: 'Inter, sans-serif',
+            fontSize: '14px',
+            fontWeight: 400,
+            color: '#a0aec0',
+            marginTop: '8px',
+            marginBottom: 0
+          }}>
             Please fill out the form below to request access to this application.
           </p>
-        </DialogHeader>
-        
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3">
-          <div className="grid grid-cols-2 gap-3">
-            <div className="space-y-1">
-              <Label htmlFor="firstName" className="text-sm font-medium">First Name *</Label>
-              <Input
+        </div>
+
+        {/* Form */}
+        <form onSubmit={form.handleSubmit(onSubmit)} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+            <div>
+              <label htmlFor="firstName" style={labelStyle}>First Name *</label>
+              <input
                 id="firstName"
                 {...form.register("firstName")}
                 placeholder="John"
-                className="h-9"
+                style={inputStyle}
+                onFocus={(e) => e.target.style.boxShadow = '0px 4px 12px rgba(163, 230, 53, 0.2)'}
+                onBlur={(e) => e.target.style.boxShadow = '0px 4px 12px rgba(149, 157, 165, 0.1)'}
               />
               {form.formState.errors.firstName && (
-                <p className="text-xs text-red-600">{form.formState.errors.firstName.message}</p>
+                <p style={{ fontSize: '12px', color: '#e53e3e', marginTop: '4px' }}>{form.formState.errors.firstName.message}</p>
               )}
             </div>
             
-            <div className="space-y-1">
-              <Label htmlFor="lastName" className="text-sm font-medium">Last Name *</Label>
-              <Input
+            <div>
+              <label htmlFor="lastName" style={labelStyle}>Last Name *</label>
+              <input
                 id="lastName"
                 {...form.register("lastName")}
                 placeholder="Doe"
-                className="h-9"
+                style={inputStyle}
+                onFocus={(e) => e.target.style.boxShadow = '0px 4px 12px rgba(163, 230, 53, 0.2)'}
+                onBlur={(e) => e.target.style.boxShadow = '0px 4px 12px rgba(149, 157, 165, 0.1)'}
               />
               {form.formState.errors.lastName && (
-                <p className="text-xs text-red-600">{form.formState.errors.lastName.message}</p>
+                <p style={{ fontSize: '12px', color: '#e53e3e', marginTop: '4px' }}>{form.formState.errors.lastName.message}</p>
               )}
             </div>
           </div>
 
-          <div className="space-y-1">
-            <Label htmlFor="email" className="text-sm font-medium">Email Address *</Label>
-            <Input
+          <div>
+            <label htmlFor="email" style={labelStyle}>Email Address *</label>
+            <input
               id="email"
               type="email"
               {...form.register("email")}
               placeholder="john.doe@company.com"
-              className="h-9"
+              style={inputStyle}
+              onFocus={(e) => e.target.style.boxShadow = '0px 4px 12px rgba(163, 230, 53, 0.2)'}
+              onBlur={(e) => e.target.style.boxShadow = '0px 4px 12px rgba(149, 157, 165, 0.1)'}
             />
             {form.formState.errors.email && (
-              <p className="text-xs text-red-600">{form.formState.errors.email.message}</p>
+              <p style={{ fontSize: '12px', color: '#e53e3e', marginTop: '4px' }}>{form.formState.errors.email.message}</p>
             )}
           </div>
 
-          <div className="space-y-1">
-            <Label htmlFor="department" className="text-sm font-medium">Department *</Label>
-            <Select onValueChange={(value) => form.setValue("department", value)}>
-              <SelectTrigger className="h-9">
-                <SelectValue placeholder={departmentsLoading ? "Loading..." : "Select department"} />
-              </SelectTrigger>
-              <SelectContent>
-                {departmentsLoading ? (
-                  <SelectItem value="loading" disabled>Loading departments...</SelectItem>
-                ) : departments.length > 0 ? (
-                  departments.map((dept) => (
-                    <SelectItem key={dept.id.toString()} value={dept.name}>
-                      {dept.name}
-                    </SelectItem>
-                  ))
-                ) : (
-                  <SelectItem value="no-departments" disabled>No departments found</SelectItem>
-                )}
-              </SelectContent>
-            </Select>
+          <div>
+            <label htmlFor="department" style={labelStyle}>Department *</label>
+            <select
+              id="department"
+              onChange={(e) => form.setValue("department", e.target.value)}
+              style={{ ...inputStyle, cursor: 'pointer' }}
+              onFocus={(e) => e.target.style.boxShadow = '0px 4px 12px rgba(163, 230, 53, 0.2)'}
+              onBlur={(e) => e.target.style.boxShadow = '0px 4px 12px rgba(149, 157, 165, 0.1)'}
+              defaultValue=""
+            >
+              <option value="" disabled style={{ color: '#a0aec0' }}>
+                {departmentsLoading ? "Loading..." : "Select department"}
+              </option>
+              {!departmentsLoading && departments.length > 0 && departments.map((dept) => (
+                <option key={dept.id.toString()} value={dept.name}>
+                  {dept.name}
+                </option>
+              ))}
+            </select>
             {form.formState.errors.department && (
-              <p className="text-xs text-red-600">{form.formState.errors.department.message}</p>
+              <p style={{ fontSize: '12px', color: '#e53e3e', marginTop: '4px' }}>{form.formState.errors.department.message}</p>
             )}
           </div>
 
-          <div className="space-y-1">
-            <Label htmlFor="managerEmail" className="text-sm font-medium">Manager's Email *</Label>
-            <Input
+          <div>
+            <label htmlFor="managerEmail" style={labelStyle}>Manager's Email *</label>
+            <input
               id="managerEmail"
               type="email"
               {...form.register("managerEmail")}
               placeholder="manager@company.com"
-              className="h-9"
+              style={inputStyle}
+              onFocus={(e) => e.target.style.boxShadow = '0px 4px 12px rgba(163, 230, 53, 0.2)'}
+              onBlur={(e) => e.target.style.boxShadow = '0px 4px 12px rgba(149, 157, 165, 0.1)'}
             />
             {form.formState.errors.managerEmail && (
-              <p className="text-xs text-red-600">{form.formState.errors.managerEmail.message}</p>
+              <p style={{ fontSize: '12px', color: '#e53e3e', marginTop: '4px' }}>{form.formState.errors.managerEmail.message}</p>
             )}
           </div>
 
-          <div className="space-y-1">
-            <Label htmlFor="justification" className="text-sm font-medium">Justification *</Label>
-            <Textarea
+          <div>
+            <label htmlFor="justification" style={labelStyle}>Justification *</label>
+            <textarea
               id="justification"
               {...form.register("justification")}
               placeholder="Explain why you need access to this application..."
               rows={3}
-              className="resize-none text-sm"
+              style={{ ...inputStyle, resize: 'none' }}
+              onFocus={(e) => e.target.style.boxShadow = '0px 4px 12px rgba(163, 230, 53, 0.2)'}
+              onBlur={(e) => e.target.style.boxShadow = '0px 4px 12px rgba(149, 157, 165, 0.1)'}
             />
             {form.formState.errors.justification && (
-              <p className="text-xs text-red-600">{form.formState.errors.justification.message}</p>
+              <p style={{ fontSize: '12px', color: '#e53e3e', marginTop: '4px' }}>{form.formState.errors.justification.message}</p>
             )}
           </div>
 
-          <div className="flex justify-end space-x-2 pt-3 border-t mt-4">
-            <Button
+          <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '12px', paddingTop: '16px', borderTop: '1px solid #e2e8f0', marginTop: '8px' }}>
+            <button
               type="button"
-              variant="outline"
               onClick={onClose}
               disabled={submitRequestMutation.isPending}
-              className="h-9 px-4"
+              style={{
+                background: 'transparent',
+                border: '2px solid #a0aec0',
+                borderRadius: '12px',
+                padding: '10px 20px',
+                fontFamily: 'Inter, sans-serif',
+                fontSize: '14px',
+                fontWeight: 500,
+                color: '#4a5568',
+                cursor: 'pointer',
+                opacity: submitRequestMutation.isPending ? 0.5 : 1
+              }}
             >
               Cancel
-            </Button>
-            <Button 
-              type="submit" 
+            </button>
+            <button
+              type="submit"
               disabled={submitRequestMutation.isPending}
-              className="h-9 px-4 bg-brand hover:bg-brand-dark"
+              style={{
+                background: 'linear-gradient(135deg, #A3E635 0%, #84cc16 100%)',
+                border: 'none',
+                borderRadius: '12px',
+                padding: '10px 20px',
+                fontFamily: 'Inter, sans-serif',
+                fontSize: '14px',
+                fontWeight: 600,
+                color: '#1E2A38',
+                boxShadow: '0px 6px 20px rgba(163, 230, 53, 0.25)',
+                cursor: 'pointer',
+                opacity: submitRequestMutation.isPending ? 0.5 : 1
+              }}
             >
               {submitRequestMutation.isPending ? "Submitting..." : "Submit Request"}
-            </Button>
+            </button>
           </div>
         </form>
-      </DialogContent>
-    </Dialog>
+        </div>
+      </div>
+    </div>
   );
 }

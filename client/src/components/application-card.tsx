@@ -5,7 +5,7 @@ import { MobileTooltip } from "@/components/ui/mobile-tooltip";
 import { ApplicationWithRelations } from "@shared/schema";
 import { resolveIconUrl, cn } from "@/lib/utils";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { Info } from "lucide-react";
+import { Info, ExternalLink } from "lucide-react";
 
 interface ApplicationCardProps {
   application: ApplicationWithRelations;
@@ -18,190 +18,132 @@ export default function ApplicationCard({ application, onRequestAccess, viewMode
 
   const getStatusBadge = () => {
     if (!application.status) {
-      return <Badge variant="secondary">Unknown</Badge>;
+      return <span style={{
+        padding: '4px 10px',
+        borderRadius: '8px',
+        fontFamily: 'Inter, sans-serif',
+        fontSize: '12px',
+        fontWeight: 500,
+        background: '#6b7280',
+        color: 'white'
+      }}>Unknown</span>;
     }
     
-    // Map status string to colors
-    const statusConfig: Record<string, { color: string; label: string }> = {
-      'approved': { color: '#10b981', label: 'Approved' },
-      'pending': { color: '#f59e0b', label: 'Pending' },
-      'rejected': { color: '#ef4444', label: 'Rejected' },
-    };
-
-    const config = statusConfig[application.status.toLowerCase()] || { color: '#6b7280', label: application.status };
+    const statusLower = application.status.toLowerCase();
     
+    if (statusLower === 'approved') {
+      return (
+        <span style={{
+          padding: '4px 10px',
+          borderRadius: '8px',
+          fontFamily: 'Inter, sans-serif',
+          fontSize: '12px',
+          fontWeight: 500,
+          background: 'linear-gradient(135deg, #A3E635 0%, #84cc16 100%)',
+          color: '#1E2A38',
+          boxShadow: '0px 4px 12px rgba(163, 230, 53, 0.2)'
+        }}>Approved</span>
+      );
+    }
+    
+    if (statusLower === 'pending') {
+      return (
+        <span style={{
+          padding: '4px 10px',
+          borderRadius: '8px',
+          fontFamily: 'Inter, sans-serif',
+          fontSize: '12px',
+          fontWeight: 500,
+          background: 'linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%)',
+          color: '#1E2A38',
+          boxShadow: '0px 4px 12px rgba(251, 191, 36, 0.2)'
+        }}>Pending</span>
+      );
+    }
+    
+    // Default for other statuses
     return (
-      <Badge 
-        style={{ 
-          backgroundColor: config.color, 
-          color: 'white',
-          borderColor: config.color 
-        }}
-      >
-        {config.label}
-      </Badge>
+      <span style={{
+        padding: '4px 10px',
+        borderRadius: '8px',
+        fontFamily: 'Inter, sans-serif',
+        fontSize: '12px',
+        fontWeight: 500,
+        background: '#6b7280',
+        color: 'white'
+      }}>{application.status}</span>
     );
   };
 
   if (viewMode === "list") {
     return (
-      <Card className="hover:shadow-md transition-all duration-200">
-        <CardContent className="p-4">
-          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
-            <div className="flex items-start space-x-4 flex-1 min-w-0">
-              {/* Application Icon */}
-              <div className="w-10 h-10 bg-brand rounded-lg flex items-center justify-center flex-shrink-0">
-                {application.icon ? (
-                  <img 
-                    src={resolveIconUrl(application.icon)} 
-                    alt={application.name} 
-                    className="w-5 h-5 text-white" 
-                  />
-                ) : (
-                  <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 011 1v12a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm1 0v12h12V4H4z" clipRule="evenodd" />
-                    <path d="M6 6h8v2H6V6zM6 10h8v2H6v-2zM6 14h5v2H6v-2z" />
-                  </svg>
-                )}
-              </div>
-              
-              <div className="flex-1 min-w-0">
-                <div className="flex items-center space-x-3 mb-2">
-                  <h3 className="font-semibold text-gray-900">{application.name}</h3>
-                  {getStatusBadge()}
-                </div>
-                <p className="text-gray-600 text-sm leading-relaxed mb-3">
-                  {application.description || "No description available"}
-                </p>
-                
-                {/* Departments */}
-                {application.departments && application.departments.length > 0 && (
-                  <div className="mb-2">
-                    <span className="font-medium text-sm text-gray-700 mb-1 block">Departments: </span>
-                    <div className="flex flex-wrap gap-1">
-                      {application.departments.map((dept) => (
-                        <span 
-                          key={dept.id}
-                          className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800"
-                        >
-                          {dept.name}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                )}
-                
-                {/* Categories */}
-                {application.categories && application.categories.length > 0 && (
-                  <div>
-                    <span className="font-medium text-sm text-gray-700 mb-1 block">Categories: </span>
-                    <div className="flex flex-wrap gap-1">
-                      {application.categories.map((category) => (
-                        <span 
-                          key={category.id}
-                          className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800"
-                        >
-                          {category.name}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-            </div>
-            
-            <div className="flex flex-col sm:flex-row gap-2 sm:ml-4 shrink-0">
-              <button
-                onClick={() => onRequestAccess(application)}
-                className="px-3 py-1.5 text-sm font-medium text-brand bg-white border border-brand hover:bg-brand-dark hover:text-white rounded-md transition-colors duration-200"
-              >
-                Request Access
-              </button>
-              {application.url && (
-                <a
-                  href={application.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-3 py-1.5 text-sm font-medium text-white text-center bg-brand hover:bg-brand-dark rounded-md transition-colors duration-200"
-                >
-                  Visit 
-                </a>
-              )}
-            </div>
-          </div>
-        </CardContent>
-      </Card>
-    );
-  }
-
-  // Grid view (default)
-  return (
-    <Card className="hover:shadow-md transition-all duration-200 h-full">
-      <CardContent className="p-6 h-full flex flex-col">
-        <div className="flex items-center space-x-4 mb-4">
-          {/* Application Icon */}
-          <div className="w-12 h-12 bg-brand rounded-xl flex items-center justify-center flex-shrink-0">
+      <div style={{
+        background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
+        borderRadius: '16px',
+        padding: '20px 24px',
+        boxShadow: '0px 8px 24px rgba(149, 157, 165, 0.15)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        marginBottom: '16px',
+        flexWrap: 'wrap',
+        gap: '16px'
+      }}>
+        {/* Left Side - Icon + Text */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flex: 1, minWidth: '250px' }}>
+          {/* Application Icon - Keep original */}
+          <div className="w-10 h-10 bg-brand rounded-lg flex items-center justify-center flex-shrink-0">
             {application.icon ? (
               <img 
                 src={resolveIconUrl(application.icon)} 
                 alt={application.name} 
-                className="w-6 h-6 text-white" 
+                className="w-5 h-5 text-white" 
               />
             ) : (
-              <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+              <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 011 1v12a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm1 0v12h12V4H4z" clipRule="evenodd" />
                 <path d="M6 6h8v2H6V6zM6 10h8v2H6v-2zM6 14h5v2H6v-2z" />
               </svg>
             )}
           </div>
           
-          <div className="flex-1 min-w-0">
-            <h3 className="font-semibold text-gray-900 mb-1">{application.name}</h3>
-            {getStatusBadge()}
+          <div style={{ flex: 1 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '4px' }}>
+              <span style={{
+                fontFamily: 'Inter, sans-serif',
+                fontSize: '16px',
+                fontWeight: 600,
+                color: '#4a5568'
+              }}>{application.name}</span>
+              {getStatusBadge()}
+            </div>
+            <p style={{
+              fontFamily: 'Inter, sans-serif',
+              fontSize: '14px',
+              color: '#a0aec0',
+              marginTop: '4px',
+              margin: 0
+            }}>
+              {application.description || "No description available"}
+            </p>
           </div>
         </div>
         
-        <p className="text-gray-600 text-sm mb-4 leading-relaxed flex-grow">
-          {application.description || "No description available"}
-        </p>
-        
-        <div className="text-sm text-gray-500 mb-4 space-y-3">
-          {application.departments && application.departments.length > 0 && (
-            <div>
-              <span className="font-medium text-gray-700 mb-2 block">Departments: </span>
-              <div className="flex flex-wrap gap-1">
-                {application.departments.map((dept) => (
-                  <span 
-                    key={dept.id}
-                    className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800"
-                  >
-                    {dept.name}
-                  </span>
-                ))}
-              </div>
-            </div>
-          )}
-          {application.categories && application.categories.length > 0 && (
-            <div>
-              <span className="font-medium text-gray-700 mb-2 block">Categories: </span>
-              <div className="flex flex-wrap gap-1">
-                {application.categories.map((category) => (
-                  <span 
-                    key={category.id}
-                    className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800"
-                  >
-                    {category.name}
-                  </span>
-                ))}
-              </div>
-            </div>
-          )}
-        </div>
-        
-        <div className="flex gap-2 mt-auto">
+        {/* Right Side - Buttons */}
+        <div style={{ display: 'flex', gap: '12px' }}>
           <button
             onClick={() => onRequestAccess(application)}
-            className="flex-1 inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-brand bg-white border border-brand hover:bg-brand-dark hover:text-white rounded-md transition-colors duration-200"
+            style={{
+              padding: '10px 20px',
+              borderRadius: '12px',
+              border: '2px solid #A3E635',
+              background: 'transparent',
+              color: '#4a5568',
+              fontFamily: 'Inter, sans-serif',
+              fontSize: '14px',
+              fontWeight: 500,
+              cursor: 'pointer'
+            }}
           >
             Request Access
           </button>
@@ -210,13 +152,134 @@ export default function ApplicationCard({ application, onRequestAccess, viewMode
               href={application.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-brand hover:bg-brand-dark rounded-md transition-colors duration-200"
+              style={{
+                padding: '10px 20px',
+                borderRadius: '12px',
+                border: 'none',
+                background: 'linear-gradient(135deg, #A3E635 0%, #84cc16 100%)',
+                color: '#1E2A38',
+                fontFamily: 'Inter, sans-serif',
+                fontSize: '14px',
+                fontWeight: 600,
+                boxShadow: '0px 6px 20px rgba(163, 230, 53, 0.25)',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px',
+                textDecoration: 'none'
+              }}
             >
-              Visit Application
+              Visit
+              <ExternalLink size={14} />
             </a>
           )}
         </div>
-      </CardContent>
-    </Card>
+      </div>
+    );
+  }
+
+  // Grid view (default)
+  return (
+    <div style={{
+      background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
+      borderRadius: '16px',
+      padding: '20px 24px',
+      boxShadow: '0px 8px 24px rgba(149, 157, 165, 0.15)',
+      display: 'flex',
+      flexDirection: 'column',
+      height: '100%'
+    }}>
+      {/* Header - Icon + Name + Status */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '12px' }}>
+        {/* Application Icon - Keep original */}
+        <div className="w-12 h-12 bg-brand rounded-xl flex items-center justify-center flex-shrink-0">
+          {application.icon ? (
+            <img 
+              src={resolveIconUrl(application.icon)} 
+              alt={application.name} 
+              className="w-6 h-6 text-white" 
+            />
+          ) : (
+            <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 011 1v12a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm1 0v12h12V4H4z" clipRule="evenodd" />
+              <path d="M6 6h8v2H6V6zM6 10h8v2H6v-2zM6 14h5v2H6v-2z" />
+            </svg>
+          )}
+        </div>
+        
+        <div style={{ flex: 1 }}>
+          <span style={{
+            fontFamily: 'Inter, sans-serif',
+            fontSize: '16px',
+            fontWeight: 600,
+            color: '#4a5568',
+            display: 'block',
+            marginBottom: '6px'
+          }}>{application.name}</span>
+          {getStatusBadge()}
+        </div>
+      </div>
+      
+      {/* Description */}
+      <p style={{
+        fontFamily: 'Inter, sans-serif',
+        fontSize: '14px',
+        color: '#a0aec0',
+        marginTop: '4px',
+        marginBottom: '16px',
+        flex: 1
+      }}>
+        {application.description || "No description available"}
+      </p>
+      
+      {/* Buttons */}
+      <div style={{ display: 'flex', gap: '12px' }}>
+        <button
+          onClick={() => onRequestAccess(application)}
+          style={{
+            flex: 1,
+            padding: '10px 20px',
+            borderRadius: '12px',
+            border: '2px solid #A3E635',
+            background: 'transparent',
+            color: '#4a5568',
+            fontFamily: 'Inter, sans-serif',
+            fontSize: '14px',
+            fontWeight: 500,
+            cursor: 'pointer'
+          }}
+        >
+          Request Access
+        </button>
+        {application.url && (
+          <a
+            href={application.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              flex: 1,
+              padding: '10px 20px',
+              borderRadius: '12px',
+              border: 'none',
+              background: 'linear-gradient(135deg, #A3E635 0%, #84cc16 100%)',
+              color: '#1E2A38',
+              fontFamily: 'Inter, sans-serif',
+              fontSize: '14px',
+              fontWeight: 600,
+              boxShadow: '0px 6px 20px rgba(163, 230, 53, 0.25)',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '6px',
+              textDecoration: 'none'
+            }}
+          >
+            Visit
+            <ExternalLink size={14} />
+          </a>
+        )}
+      </div>
+    </div>
   );
 }
