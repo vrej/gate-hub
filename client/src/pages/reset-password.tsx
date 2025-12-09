@@ -117,12 +117,12 @@ export default function ResetPassword() {
           <div className="text-center mb-8">
             <div className="flex items-center justify-center space-x-3 mb-4">
               <img
-                src="https://whybrands.com/images/logo.svg"
-                alt="WhyBrands Logo"
+                src="/images/gatehub-logo.png"
+                alt="GateHub Logo"
                 className="h-8 w-auto"
               />
               <span className="text-2xl font-bold text-gray-900 uppercase tracking-wide">
-                Portal
+                GateHub
               </span>
             </div>
           </div>
@@ -177,12 +177,12 @@ export default function ResetPassword() {
           <div className="text-center mb-8">
             <div className="flex items-center justify-center space-x-3 mb-4">
               <img
-                src="https://whybrands.com/images/logo.svg"
-                alt="WhyBrands Logo"
+                src="/images/gatehub-logo.png"
+                alt="GateHub Logo"
                 className="h-8 w-auto"
               />
               <span className="text-2xl font-bold text-gray-900 uppercase tracking-wide">
-                Portal
+                GateHub
               </span>
             </div>
           </div>
@@ -225,12 +225,12 @@ export default function ResetPassword() {
         <div className="text-center mb-8">
           <div className="flex items-center justify-center space-x-3 mb-4">
             <img
-              src="https://whybrands.com/images/logo.svg"
-              alt="WhyBrands Logo"
+              src="/images/gatehub-logo.png"
+              alt="GateHub Logo"
               className="h-8 w-auto"
             />
             <span className="text-2xl font-bold text-gray-900 uppercase tracking-wide">
-              Portal
+              GateHub
             </span>
           </div>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">Reset Your Password</h1>

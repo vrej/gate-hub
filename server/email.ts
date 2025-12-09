@@ -16,7 +16,7 @@ export class EmailService {
       console.log("Email service not fully configured");
     }
     
-    this.from = process.env.EMAIL_FROM || "WHY Brands <noreply@whybrands.com>";
+    this.from = process.env.EMAIL_FROM || "GateHub <noreply@gatehub.com>";
     
     this.transporter = nodemailer.createTransport({
       host: smtpHost,
@@ -35,8 +35,8 @@ export class EmailService {
       const message = {
         from: this.from,
         to: email,
-        subject: "Invitation to WHY Brands Application Portal",
-        text: `You have been invited to join the WHY Brands Application Portal by ${invitedBy.firstName} ${invitedBy.lastName}. Use this link to set up your account: ${inviteLink}`,
+        subject: "Invitation to GateHub",
+        text: `You have been invited to join GateHub by ${invitedBy.firstName} ${invitedBy.lastName}. Use this link to set up your account: ${inviteLink}`,
         html: this.generateInvitationHtml(inviteLink, invitedBy),
       };
       
@@ -91,11 +91,11 @@ export class EmailService {
     return `
       <div style="font-family: 'Segoe UI', Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e1e5ea; border-radius: 5px;">
         <div style="background-color: #0078D4; padding: 15px; border-radius: 5px 5px 0 0;">
-          <h1 style="color: white; margin: 0; font-size: 24px;">WHY Brands Application Portal</h1>
+          <h1 style="color: white; margin: 0; font-size: 24px;">GateHub</h1>
         </div>
         <div style="padding: 20px; background-color: #f8f9fa; border-radius: 0 0 5px 5px;">
           <p style="font-size: 16px; color: #1F2937; margin-bottom: 20px;">
-            You have been invited to join the WHY Brands Application Portal by ${invitedBy.firstName} ${invitedBy.lastName}.
+            You have been invited to join GateHub by ${invitedBy.firstName} ${invitedBy.lastName}.
           </p>
           <p style="font-size: 16px; color: #1F2937; margin-bottom: 30px;">
             Use the button below to set up your account and get started.
@@ -110,7 +110,7 @@ export class EmailService {
           </p>
         </div>
         <div style="padding: 15px; text-align: center; color: #6B7280; font-size: 12px;">
-          &copy; ${new Date().getFullYear()} WHY Brands. All rights reserved.
+          &copy; ${new Date().getFullYear()} GateHub. All rights reserved.
         </div>
       </div>
     `;
@@ -122,7 +122,7 @@ export class EmailService {
     return `
       <div style="font-family: 'Segoe UI', Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e1e5ea; border-radius: 5px;">
         <div style="background-color: #0078D4; padding: 15px; border-radius: 5px 5px 0 0;">
-          <h1 style="color: white; margin: 0; font-size: 24px;">WHY Brands Application Portal</h1>
+          <h1 style="color: white; margin: 0; font-size: 24px;">GateHub</h1>
         </div>
         <div style="padding: 20px; background-color: #f8f9fa; border-radius: 0 0 5px 5px;">
           <p style="font-size: 16px; color: #1F2937; margin-bottom: 20px;">
@@ -138,7 +138,7 @@ export class EmailService {
           </div>
         </div>
         <div style="padding: 15px; text-align: center; color: #6B7280; font-size: 12px;">
-          &copy; ${new Date().getFullYear()} WHY Brands. All rights reserved.
+          &copy; ${new Date().getFullYear()} GateHub. All rights reserved.
         </div>
       </div>
     `;

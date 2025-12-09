@@ -39,7 +39,7 @@ import { z } from 'zod';
 import { apiRequest } from '@/lib/queryClient';
 import { useToast } from '@/hooks/use-toast';
 import { UserPlus, Users } from 'lucide-react';
-import WhyBrandsLogo from '@/components/ui/why-brands-logo';
+import GateHubLogo from '@/components/ui/gatehub-logo';
 import { DEPARTMENTS } from '@shared/constants';
 
 // Define user type
@@ -154,7 +154,7 @@ const UserManagement = () => {
       <header className="bg-white shadow">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
           <div className="flex items-center">
-            <WhyBrandsLogo className="text-primary h-8 mr-2" />
+            <GateHubLogo className="text-primary h-8 mr-2" />
             <h1 className="text-xl font-semibold text-gray-900">User Management</h1>
           </div>
           <div>

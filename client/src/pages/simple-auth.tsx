@@ -65,10 +65,10 @@ const SimpleAuthPage: React.FC<SimpleAuthPageProps> = ({ login, register, isLoad
         <div className="w-full max-w-md space-y-8">
           <div className="text-center">
             <div className="mx-auto h-12 w-48 bg-primary rounded flex items-center justify-center text-white font-bold mb-8">
-              WHY Brands
+              GateHub
             </div>
             <h2 className="text-2xl font-bold text-neutral-dark">
-              Welcome to Application Portal
+              Welcome to GateHub
             </h2>
             <p className="mt-2 text-sm text-neutral-medium">
               Sign in to your account or create a new one
@@ -233,7 +233,7 @@ const SimpleAuthPage: React.FC<SimpleAuthPageProps> = ({ login, register, isLoad
       {/* Hero Section */}
       <div className="flex-1 bg-primary p-12 hidden lg:flex lg:flex-col lg:justify-center">
         <div className="max-w-md mx-auto text-white space-y-8">
-          <h1 className="text-4xl font-bold">WHY Brands Application Portal</h1>
+          <h1 className="text-4xl font-bold">GateHub</h1>
           <p className="text-xl">
             Your central hub for organizing approved services and applications
           </p>

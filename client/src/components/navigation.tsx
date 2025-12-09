@@ -39,7 +39,7 @@ export default function Navigation({ showUserMenu = false, user = null }: Naviga
           {/* Logo on the left */}
           <Link href="/" className="flex items-center">
             <img
-              src="/images/GateHubTMbyDWM80.png"
+              src="/images/gtehub-logo.png"
               alt="GateHub Logo"
               style={{ 
                 height: '80px', 

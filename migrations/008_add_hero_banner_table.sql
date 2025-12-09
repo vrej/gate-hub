@@ -1,9 +1,9 @@
 -- Create hero_banner table for dynamic hero content
 CREATE TABLE IF NOT EXISTS hero_banner (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    title TEXT NOT NULL DEFAULT 'WhyBrands Application Portal',
+    title TEXT NOT NULL DEFAULT 'GateHub',
     subtitle TEXT NOT NULL DEFAULT 'Find and request access to approved software applications for your department.',
-    brand_name TEXT NOT NULL DEFAULT 'WhyBrands',
+    brand_name TEXT NOT NULL DEFAULT 'GateHub',
     is_active BOOLEAN NOT NULL DEFAULT 1,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
@@ -12,9 +12,9 @@ CREATE TABLE IF NOT EXISTS hero_banner (
 -- Insert default hero banner content
 INSERT INTO hero_banner (title, subtitle, brand_name, is_active) 
 VALUES (
-    'WhyBrands Application Portal',
+    'GateHub',
     'Find and request access to approved software applications for your department.',
-    'WhyBrands',
+    'GateHub',
     1
 );
 

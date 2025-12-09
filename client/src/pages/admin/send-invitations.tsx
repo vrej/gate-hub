@@ -97,7 +97,7 @@ export default function SendInvitations() {
   return (
     <AppShell 
       title="Send Invitations" 
-      subtitle="Invite users to join the WHY Brands Application Portal"
+      subtitle="Invite users to join GateHub"
     >
       <div className="mt-8 max-w-2xl mx-auto">
         <Card>
@@ -242,10 +242,10 @@ export default function SendInvitations() {
             <CardContent>
               <div className="border rounded-md p-4 bg-white">
                 <div className="bg-primary p-4 rounded-t-md">
-                  <h3 className="text-white text-lg font-semibold">WHY Brands Application Portal</h3>
+                  <h3 className="text-white text-lg font-semibold">GateHub</h3>
                 </div>
                 <div className="p-6 space-y-4">
-                  <p>You have been invited to join the WHY Brands Application Portal.</p>
+                  <p>You have been invited to join GateHub.</p>
                   <p>Use the button below to set up your account and get started.</p>
                   
                   <div className="flex justify-center my-6">
@@ -257,11 +257,11 @@ export default function SendInvitations() {
                   <p className="text-sm text-neutral-medium mt-6">
                     If the button doesn't work, copy and paste this link into your browser:
                     <br />
-                    <span className="text-primary">https://whybrands.com/auth?invite=true&email=example@example.com</span>
+                    <span className="text-primary">https://gatehub.dwm.com/auth?invite=true&email=example@example.com</span>
                   </p>
                 </div>
                 <div className="bg-neutral-lightest p-3 text-center text-xs text-neutral-medium rounded-b-md">
-                  &copy; {new Date().getFullYear()} WHY Brands. All rights reserved.
+                  &copy; {new Date().getFullYear()} GateHub. All rights reserved.
                 </div>
               </div>
             </CardContent>

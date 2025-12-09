@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Digital Ocean App Platform Deployment Script
-# This script helps deploy the WhyBrands Application Portal to Digital Ocean
+# This script helps deploy GateHub to Digital Ocean
 
 set -e
 

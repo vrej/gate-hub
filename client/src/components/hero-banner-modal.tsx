@@ -85,8 +85,8 @@ export default function HeroBannerModal({ isOpen, onClose, heroBanner }: HeroBan
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 uppercase tracking-wide">
-            <span className="text-brand">{watchedValues.brandName || "WhyBrands"}</span>{" "}
-            {watchedValues.title?.replace(watchedValues.brandName || "WhyBrands", "").trim() || "Application Portal"}
+            <span className="text-brand">{watchedValues.brandName || "GateHub"}</span>{" "}
+            {watchedValues.title?.replace(watchedValues.brandName || "GateHub", "").trim() || ""}
           </h1>
           <p className="text-lg sm:text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed px-4">
             {watchedValues.subtitle || "Find and request access to approved software applications for your department."}
@@ -130,7 +130,7 @@ export default function HeroBannerModal({ isOpen, onClose, heroBanner }: HeroBan
             <Label htmlFor="brandName" className="text-sm font-medium">Brand Name *</Label>
             <Input
               id="brandName"
-              placeholder="WhyBrands"
+              placeholder="GateHub"
               {...form.register("brandName")}
               className="h-9"
             />
@@ -145,7 +145,7 @@ export default function HeroBannerModal({ isOpen, onClose, heroBanner }: HeroBan
             <Label htmlFor="title" className="text-sm font-medium">Title *</Label>
             <Input
               id="title"
-              placeholder="Application Portal"
+              placeholder="GateHub"
               {...form.register("title")}
               className="h-9"
             />

@@ -16,9 +16,9 @@ The following SQL commands were executed to create the hero banner table:
 -- Create hero_banner table for dynamic hero content
 CREATE TABLE IF NOT EXISTS hero_banner (
     id SERIAL PRIMARY KEY,
-    title TEXT NOT NULL DEFAULT 'WhyBrands Application Portal',
+    title TEXT NOT NULL DEFAULT 'GateHub',
     subtitle TEXT NOT NULL DEFAULT 'Find and request access to approved software applications for your department.',
-    brand_name TEXT NOT NULL DEFAULT 'WhyBrands',
+    brand_name TEXT NOT NULL DEFAULT 'GateHub',
     is_active BOOLEAN NOT NULL DEFAULT true,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
@@ -27,9 +27,9 @@ CREATE TABLE IF NOT EXISTS hero_banner (
 -- Insert default hero banner content
 INSERT INTO hero_banner (title, subtitle, brand_name, is_active)
 VALUES (
-    'WhyBrands Application Portal',
+    'GateHub',
     'Find and request access to approved software applications for your department.',
-    'WhyBrands',
+    'GateHub',
     true
 );
 
@@ -68,7 +68,7 @@ npx drizzle-kit push
 
 ### Modal Fields
 
-- **Brand Name**: The company/brand name (e.g., "WhyBrands")
+- **Brand Name**: The company/brand name (e.g., "GateHub")
 - **Title**: The main title text (will be combined with brand name)
 - **Subtitle**: The descriptive text below the title
 - **Active Status**: Toggle to activate/deactivate the banner
@@ -85,7 +85,7 @@ npx drizzle-kit push
 2. **Find Hero Banner Card**: Look for the "Hero Banner" card in the admin actions section
 3. **Click Edit**: Click "Edit Hero Banner" button
 4. **Customize Content**:
-   - Update brand name (e.g., "WhyBrands")
+   - Update brand name (e.g., "GateHub")
    - Update title (e.g., "Application Portal")
    - Update subtitle description
    - Toggle active status

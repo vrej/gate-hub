@@ -115,7 +115,7 @@ export default function Sidebar({ isAdmin, isOpen, onClose }: SidebarProps) {
           <div className="h-full flex flex-col">
             <div className="p-4 border-b border-neutral-light flex justify-between items-center">
               <div className="h-8 w-32 bg-primary rounded flex items-center justify-center text-white font-bold">
-                WHY Brands
+                GateHub
               </div>
               <Button
                 variant="ghost"

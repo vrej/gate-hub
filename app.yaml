@@ -1,4 +1,4 @@
-name: whybrands-application-portal
+name: gatehub
 services:
   - name: web
     source_dir: /

@@ -1,8 +1,8 @@
-# WhyBrandsPortal
+# GateHub
 
 ## Overview
 
-WhyBrandsPortal is a full-stack web application for managing software applications, user access requests, and admin operations within an organization. It features a modern React frontend, a robust Express backend, and PostgreSQL for persistent storage, with shared types and validation using Drizzle ORM and Zod.
+GateHub is a full-stack web application for managing software applications, user access requests, and admin operations within an organization. It features a modern React frontend, a robust Express backend, and PostgreSQL for persistent storage, with shared types and validation using Drizzle ORM and Zod.
 
 ---
 
@@ -53,7 +53,7 @@ WhyBrandsPortal is a full-stack web application for managing software applicatio
 
 ```sh
 git clone <repo-url>
-cd WhyBrandsPortal
+cd DWM-gate-hub
 npm install
 ```
 

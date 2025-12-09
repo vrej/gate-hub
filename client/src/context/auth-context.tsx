@@ -82,7 +82,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       queryClient.setQueryData(["/api/user"], user);
       toast({
         title: "Registration successful",
-        description: `Welcome to WHY Brands Application Portal, ${user.firstName}!`,
+        description: `Welcome to GateHub, ${user.firstName}!`,
       });
     },
     onError: (error: Error) => {

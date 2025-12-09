@@ -19,7 +19,7 @@ import {
   SelectTrigger, 
   SelectValue 
 } from '@/components/ui/select';
-import WhyBrandsLogo from '@/components/ui/why-brands-logo';
+import GateHubLogo from '@/components/ui/gatehub-logo';
 import { 
   Table,
   TableBody,
@@ -122,8 +122,8 @@ const Dashboard = () => {
       <header className="bg-white shadow">
         <div className="mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
           <div className="flex items-center">
-            <WhyBrandsLogo className="text-primary h-8 mr-2" />
-            <h1 className="text-xl font-semibold text-gray-900">Application Portal</h1>
+            <GateHubLogo className="text-primary h-8 mr-2" />
+            <h1 className="text-xl font-semibold text-gray-900">GateHub</h1>
           </div>
           <div>
             <Button asChild variant="outline" className="mr-2">

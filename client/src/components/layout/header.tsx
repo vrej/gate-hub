@@ -49,11 +49,11 @@ export default function Header({ toggleSidebar, user }: HeaderProps) {
           <div className="flex-shrink-0">
             <Link href="/">
               <div className="h-8 w-32 bg-primary rounded flex items-center justify-center text-white font-bold cursor-pointer">
-                WHY Brands
+                GateHub
               </div>
             </Link>
           </div>
-          <h1 className="ml-4 text-xl font-semibold hidden sm:block">Application Portal</h1>
+          <h1 className="ml-4 text-xl font-semibold hidden sm:block">GateHub</h1>
         </div>
         
         <div className="flex items-center space-x-4">
