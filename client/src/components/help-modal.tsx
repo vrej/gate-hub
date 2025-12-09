@@ -169,7 +169,7 @@ export default function HelpModal({ isOpen, onClose }: HelpModalProps) {
                   gap: '10px'
                 }}>
                   <span style={{
-                    color: '#A3E635',
+                    color: '#88CF1A',
                     fontWeight: 'bold',
                     fontSize: '16px',
                     lineHeight: '1.2'

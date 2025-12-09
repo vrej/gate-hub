@@ -1443,7 +1443,7 @@ export default function Admin() {
                     alignItems: 'center',
                     justifyContent: 'center'
                   }}>
-                    <Users style={{ width: '24px', height: '24px', color: '#A3E635' }} />
+                    <Users style={{ width: '24px', height: '24px', color: '#88CF1A' }} />
                   </div>
                   <div style={{ marginLeft: '16px' }}>
                     <div style={{ fontSize: '24px', fontWeight: 700, color: '#4a5568' }}>{stats.totalUsers}</div>
@@ -1469,7 +1469,7 @@ export default function Admin() {
                     alignItems: 'center',
                     justifyContent: 'center'
                   }}>
-                    <CheckCircle style={{ width: '24px', height: '24px', color: '#A3E635' }} />
+                    <CheckCircle style={{ width: '24px', height: '24px', color: '#88CF1A' }} />
                   </div>
                   <div style={{ marginLeft: '16px' }}>
                     <div style={{ fontSize: '24px', fontWeight: 700, color: '#4a5568' }}>{stats.approvedToday}</div>
@@ -1495,7 +1495,7 @@ export default function Admin() {
                     alignItems: 'center',
                     justifyContent: 'center'
                   }}>
-                    <Clock style={{ width: '24px', height: '24px', color: '#A3E635' }} />
+                    <Clock style={{ width: '24px', height: '24px', color: '#88CF1A' }} />
                   </div>
                   <div style={{ marginLeft: '16px' }}>
                     <div style={{ fontSize: '24px', fontWeight: 700, color: '#4a5568' }}>{stats.pendingRequests}</div>
@@ -1521,7 +1521,7 @@ export default function Admin() {
                     alignItems: 'center',
                     justifyContent: 'center'
                   }}>
-                    <Dock style={{ width: '24px', height: '24px', color: '#A3E635' }} />
+                    <Dock style={{ width: '24px', height: '24px', color: '#88CF1A' }} />
                   </div>
                   <div style={{ marginLeft: '16px' }}>
                     <div style={{ fontSize: '24px', fontWeight: 700, color: '#4a5568' }}>{stats.totalApplications}</div>
@@ -1542,7 +1542,7 @@ export default function Admin() {
               border: 'none'
             }}>
               <div style={{ display: 'flex', alignItems: 'center', marginBottom: '12px' }}>
-                <Dock style={{ width: '20px', height: '20px', color: '#A3E635', marginRight: '8px' }} />
+                <Dock style={{ width: '20px', height: '20px', color: '#88CF1A', marginRight: '8px' }} />
                 <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '18px', fontWeight: 600, color: '#4a5568' }}>Applications</span>
               </div>
               <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '14px', fontWeight: 400, color: '#a0aec0', marginTop: '12px', marginBottom: '16px' }}>
@@ -1580,7 +1580,7 @@ export default function Admin() {
               border: 'none'
             }}>
               <div style={{ display: 'flex', alignItems: 'center', marginBottom: '12px' }}>
-                <Building style={{ width: '20px', height: '20px', color: '#A3E635', marginRight: '8px' }} />
+                <Building style={{ width: '20px', height: '20px', color: '#88CF1A', marginRight: '8px' }} />
                 <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '18px', fontWeight: 600, color: '#4a5568' }}>Departments</span>
               </div>
               <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '14px', fontWeight: 400, color: '#a0aec0', marginTop: '12px', marginBottom: '16px' }}>
@@ -1615,7 +1615,7 @@ export default function Admin() {
               border: 'none'
             }}>
               <div style={{ display: 'flex', alignItems: 'center', marginBottom: '12px' }}>
-                <Tags style={{ width: '20px', height: '20px', color: '#A3E635', marginRight: '8px' }} />
+                <Tags style={{ width: '20px', height: '20px', color: '#88CF1A', marginRight: '8px' }} />
                 <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '18px', fontWeight: 600, color: '#4a5568' }}>Categories</span>
               </div>
               <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '14px', fontWeight: 400, color: '#a0aec0', marginTop: '12px', marginBottom: '16px' }}>
@@ -1650,7 +1650,7 @@ export default function Admin() {
               border: 'none'
             }}>
               <div style={{ display: 'flex', alignItems: 'center', marginBottom: '12px' }}>
-                <CheckCircle style={{ width: '20px', height: '20px', color: '#A3E635', marginRight: '8px' }} />
+                <CheckCircle style={{ width: '20px', height: '20px', color: '#88CF1A', marginRight: '8px' }} />
                 <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '18px', fontWeight: 600, color: '#4a5568' }}>Application Statuses</span>
               </div>
               <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '14px', fontWeight: 400, color: '#a0aec0', marginTop: '12px', marginBottom: '16px' }}>
@@ -1685,7 +1685,7 @@ export default function Admin() {
               border: 'none'
             }}>
               <div style={{ display: 'flex', alignItems: 'center', marginBottom: '12px' }}>
-                <UserCog style={{ width: '20px', height: '20px', color: '#A3E635', marginRight: '8px' }} />
+                <UserCog style={{ width: '20px', height: '20px', color: '#88CF1A', marginRight: '8px' }} />
                 <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '18px', fontWeight: 600, color: '#4a5568' }}>Admin Users</span>
               </div>
               <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '14px', fontWeight: 400, color: '#a0aec0', marginTop: '12px', marginBottom: '16px' }}>
@@ -1720,7 +1720,7 @@ export default function Admin() {
               border: 'none'
             }}>
               <div style={{ display: 'flex', alignItems: 'center', marginBottom: '12px' }}>
-                <Eye style={{ width: '20px', height: '20px', color: '#A3E635', marginRight: '8px' }} />
+                <Eye style={{ width: '20px', height: '20px', color: '#88CF1A', marginRight: '8px' }} />
                 <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '18px', fontWeight: 600, color: '#4a5568' }}>View Requests</span>
               </div>
               <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '14px', fontWeight: 400, color: '#a0aec0', marginTop: '12px', marginBottom: '16px' }}>
@@ -1755,7 +1755,7 @@ export default function Admin() {
               border: 'none'
             }}>
               <div style={{ display: 'flex', alignItems: 'center', marginBottom: '12px' }}>
-                <File style={{ width: '20px', height: '20px', color: '#A3E635', marginRight: '8px' }} />
+                <File style={{ width: '20px', height: '20px', color: '#88CF1A', marginRight: '8px' }} />
                 <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '18px', fontWeight: 600, color: '#4a5568' }}>CSV Management</span>
               </div>
               <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '14px', fontWeight: 400, color: '#a0aec0', marginTop: '12px', marginBottom: '16px' }}>
@@ -1790,7 +1790,7 @@ export default function Admin() {
               border: 'none'
             }}>
               <div style={{ display: 'flex', alignItems: 'center', marginBottom: '12px' }}>
-                <Database style={{ width: '20px', height: '20px', color: '#A3E635', marginRight: '8px' }} />
+                <Database style={{ width: '20px', height: '20px', color: '#88CF1A', marginRight: '8px' }} />
                 <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '18px', fontWeight: 600, color: '#4a5568' }}>Database Migration</span>
               </div>
               <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '14px', fontWeight: 400, color: '#a0aec0', marginTop: '12px', marginBottom: '16px' }}>
@@ -1831,7 +1831,7 @@ export default function Admin() {
               border: 'none'
             }}>
               <div style={{ display: 'flex', alignItems: 'center', marginBottom: '12px' }}>
-                <AlertTriangle style={{ width: '20px', height: '20px', color: '#A3E635', marginRight: '8px' }} />
+                <AlertTriangle style={{ width: '20px', height: '20px', color: '#88CF1A', marginRight: '8px' }} />
                 <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '18px', fontWeight: 600, color: '#4a5568' }}>Error Logs</span>
               </div>
               <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '14px', fontWeight: 400, color: '#a0aec0', marginTop: '12px', marginBottom: '16px' }}>
@@ -1866,7 +1866,7 @@ export default function Admin() {
               border: 'none'
             }}>
               <div style={{ display: 'flex', alignItems: 'center', marginBottom: '12px' }}>
-                <Monitor style={{ width: '20px', height: '20px', color: '#A3E635', marginRight: '8px' }} />
+                <Monitor style={{ width: '20px', height: '20px', color: '#88CF1A', marginRight: '8px' }} />
                 <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '18px', fontWeight: 600, color: '#4a5568' }}>Hero Banner</span>
               </div>
               <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '14px', fontWeight: 400, color: '#a0aec0', marginTop: '12px', marginBottom: '16px' }}>
@@ -1905,7 +1905,7 @@ export default function Admin() {
               border: 'none'
             }}>
               <div style={{ display: 'flex', alignItems: 'center', marginBottom: '12px' }}>
-                <HelpCircle style={{ width: '20px', height: '20px', color: '#A3E635', marginRight: '8px' }} />
+                <HelpCircle style={{ width: '20px', height: '20px', color: '#88CF1A', marginRight: '8px' }} />
                 <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '18px', fontWeight: 600, color: '#4a5568' }}>Help Content</span>
               </div>
               <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '14px', fontWeight: 400, color: '#a0aec0', marginTop: '12px', marginBottom: '16px' }}>
@@ -1944,7 +1944,7 @@ export default function Admin() {
               border: 'none'
             }}>
               <div style={{ display: 'flex', alignItems: 'center', marginBottom: '12px' }}>
-                <BarChart3 style={{ width: '20px', height: '20px', color: '#A3E635', marginRight: '8px' }} />
+                <BarChart3 style={{ width: '20px', height: '20px', color: '#88CF1A', marginRight: '8px' }} />
                 <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '18px', fontWeight: 600, color: '#4a5568' }}>Analytics</span>
               </div>
               <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '14px', fontWeight: 400, color: '#a0aec0', marginTop: '12px', marginBottom: '16px' }}>
@@ -1981,7 +1981,7 @@ export default function Admin() {
             border: 'none'
           }}>
             <div style={{ display: 'flex', alignItems: 'center', marginBottom: '20px' }}>
-              <History style={{ width: '20px', height: '20px', color: '#A3E635', marginRight: '8px' }} />
+              <History style={{ width: '20px', height: '20px', color: '#88CF1A', marginRight: '8px' }} />
               <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '18px', fontWeight: 600, color: '#4a5568' }}>Recent Activity</span>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>

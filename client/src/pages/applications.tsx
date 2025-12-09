@@ -170,7 +170,7 @@ export default function Applications() {
               color: '#4a5568'
             }}>
               {heroBanner?.brandName && (
-                <span style={{ color: '#A3E635' }}>{heroBanner.brandName} </span>
+                <span style={{ color: '#88CF1A' }}>{heroBanner.brandName} </span>
               )}
               {heroBanner?.title || "Application Command Center"}
             </h1>
@@ -355,7 +355,7 @@ export default function Applications() {
                 style={{
                   fontFamily: 'Inter, sans-serif',
                   fontSize: '14px',
-                  color: sortBy === "name" ? '#A3E635' : '#a0aec0',
+                  color: sortBy === "name" ? '#88CF1A' : '#a0aec0',
                   fontWeight: sortBy === "name" ? 500 : 400,
                   background: 'transparent',
                   border: 'none',
@@ -369,7 +369,7 @@ export default function Applications() {
                 style={{
                   fontFamily: 'Inter, sans-serif',
                   fontSize: '14px',
-                  color: sortBy === "status" ? '#A3E635' : '#a0aec0',
+                  color: sortBy === "status" ? '#88CF1A' : '#a0aec0',
                   fontWeight: sortBy === "status" ? 500 : 400,
                   background: 'transparent',
                   border: 'none',

@@ -67,7 +67,7 @@ const getButtonStyles = (variant: string | null | undefined): React.CSSPropertie
       }
     case 'link':
       return {
-        color: '#A3E635',
+        color: '#88CF1A',
         fontFamily: 'Inter, sans-serif',
       }
     default:

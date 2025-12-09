@@ -253,7 +253,7 @@
 
 [data-radix-dialog-content] input:focus:not([type="checkbox"]):not([type="radio"]),
 [data-radix-dialog-content] textarea:focus {
-  border-color: #A3E635 !important;
+  border-color: #88CF1A !important;
   box-shadow: 0px 4px 12px rgba(163, 230, 53, 0.15) !important;
   outline: none !important;
 }
@@ -285,7 +285,7 @@
 
 [data-radix-dialog-content] [class*="SelectTrigger"]:focus,
 [data-radix-dialog-content] select:focus {
-  border-color: #A3E635 !important;
+  border-color: #88CF1A !important;
   box-shadow: 0px 4px 12px rgba(163, 230, 53, 0.15) !important;
   outline: none !important;
 }
@@ -293,12 +293,12 @@
 /* GLOBAL CHECKBOXES */
 [data-radix-dialog-content] input[type="checkbox"],
 [data-radix-dialog-content] [class*="Checkbox"] {
-  accent-color: #A3E635 !important;
+  accent-color: #88CF1A !important;
 }
 
 [data-radix-dialog-content] [data-state="checked"] {
-  background-color: #A3E635 !important;
-  border-color: #A3E635 !important;
+  background-color: #88CF1A !important;
+  border-color: #88CF1A !important;
 }
 
 /* GLOBAL PRIMARY BUTTONS */
@@ -407,7 +407,7 @@
 /* GLOBAL TABLE LINKS */
 [data-radix-dialog-content] td a,
 [data-radix-dialog-content] [class*="TableCell"] a {
-  color: #A3E635 !important;
+  color: #88CF1A !important;
 }
 
 [data-radix-dialog-content] td a:hover,
@@ -426,7 +426,7 @@
 [data-radix-dialog-content] button[class*="ghost"]:not([class*="text-red"]):hover svg,
 [data-radix-dialog-content] button[class*="icon"]:not([class*="text-red"]):hover svg,
 .global-action-icon:hover {
-  color: #A3E635 !important;
+  color: #88CF1A !important;
 }
 
 /* GLOBAL DELETE ICONS */
@@ -471,7 +471,7 @@
 /* Firefox scrollbar support for modal inner scroll content */
 [data-radix-dialog-content] .modal-scroll-content {
   scrollbar-width: thin;
-  scrollbar-color: #A3E635 #f1f5f9;
+  scrollbar-color: #88CF1A #f1f5f9;
 }
 
 /* GLOBAL ERROR TEXT */
@@ -488,7 +488,7 @@
 [data-radix-dialog-content] [class*="text-green"],
 [data-radix-dialog-content] .success-text,
 .global-success-text {
-  color: #A3E635 !important;
+  color: #88CF1A !important;
   font-family: Inter, sans-serif !important;
   font-size: 12px !important;
 }
@@ -496,7 +496,7 @@
 /* GLOBAL LINK TEXT */
 [data-radix-dialog-content] a:not([class*="Button"]),
 .global-link {
-  color: #A3E635 !important;
+  color: #88CF1A !important;
   cursor: pointer !important;
 }
 
@@ -514,7 +514,7 @@
 
 /* GLOBAL LOADING SPINNER */
 [data-radix-dialog-content] [class*="animate-spin"] {
-  color: #A3E635 !important;
+  color: #88CF1A !important;
 }
 
 /* GLOBAL CLOSE BUTTON STYLING */
@@ -539,8 +539,8 @@
 }
 
 .global-icon-btn:hover {
-  color: #A3E635 !important;
-  border-color: #A3E635 !important;
+  color: #88CF1A !important;
+  border-color: #88CF1A !important;
 }
 
 /* GLOBAL CARD STYLING */
@@ -589,14 +589,14 @@
 }
 
 .global-form-input:focus {
-  border-color: #A3E635 !important;
+  border-color: #88CF1A !important;
   box-shadow: 0px 4px 12px rgba(163, 230, 53, 0.15) !important;
 }
 
 /* GLOBAL INPUT FOCUS */
 .global-input:focus,
 .global-textarea:focus {
-  border-color: #A3E635 !important;
+  border-color: #88CF1A !important;
   box-shadow: 0px 4px 12px rgba(163, 230, 53, 0.15) !important;
 }
 
@@ -655,7 +655,7 @@
 
 /* Select Trigger Focus State */
 [data-radix-select-trigger]:focus {
-  border-color: #A3E635 !important;
+  border-color: #88CF1A !important;
   box-shadow: 0px 4px 12px rgba(163, 230, 53, 0.15) !important;
   outline: none !important;
 }
@@ -724,7 +724,7 @@
 }
 
 .manage-apps-input:focus {
-  border-color: #A3E635 !important;
+  border-color: #88CF1A !important;
   box-shadow: 0px 4px 12px rgba(163, 230, 53, 0.15) !important;
   outline: none !important;
 }
@@ -739,14 +739,14 @@
 }
 
 .manage-apps-icon-btn:hover {
-  color: #A3E635 !important;
-  border-color: #A3E635 !important;
+  color: #88CF1A !important;
+  border-color: #88CF1A !important;
 }
 
 .manage-apps-ai-link {
   font-family: Inter, sans-serif !important;
   font-size: 12px !important;
-  color: #A3E635 !important;
+  color: #88CF1A !important;
   cursor: pointer !important;
 }
 
@@ -757,7 +757,7 @@
 .manage-apps-unselect-link {
   font-family: Inter, sans-serif !important;
   font-size: 12px !important;
-  color: #A3E635 !important;
+  color: #88CF1A !important;
   cursor: pointer !important;
   background: none !important;
   border: none !important;
@@ -776,7 +776,7 @@
 }
 
 .manage-apps-checkbox {
-  accent-color: #A3E635 !important;
+  accent-color: #88CF1A !important;
 }
 
 .manage-apps-file-btn {
@@ -791,7 +791,7 @@
 }
 
 .manage-apps-file-btn:hover {
-  border-color: #A3E635 !important;
+  border-color: #88CF1A !important;
 }
 
 .manage-apps-cancel-btn {
@@ -841,11 +841,11 @@
 
 /* Admin Dashboard Action Button Hover Styling */
 .admin-action-btn:hover {
-  color: #A3E635 !important;
+  color: #88CF1A !important;
 }
 
 .admin-action-btn:hover .admin-action-icon {
-  color: #A3E635 !important;
+  color: #88CF1A !important;
 }
 
 /* View All Button Hover Styling */
@@ -895,6 +895,6 @@
 .modal-scroll-content,
 .modal-scrollbar {
   scrollbar-width: thin;
-  scrollbar-color: #A3E635 #f1f5f9;
+  scrollbar-color: #88CF1A #f1f5f9;
   scrollbar-gutter: stable;
 }
