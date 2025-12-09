@@ -9,9 +9,9 @@ WORKDIR /app
 
 # Install dependencies based on the preferred package manager
 COPY package.json package-lock.json* ./
-# Force clean install to avoid Rollup issues and ensure Node.js 20
+# Fresh install to resolve correct platform-specific dependencies (like Rollup binaries for Alpine/musl)
 RUN rm -rf node_modules package-lock.json && \
-    npm install --no-optional --no-audit --no-fund && \
+    npm install && \
     npm cache clean --force
 
 # Rebuild the source code only when needed
