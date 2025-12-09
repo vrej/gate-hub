@@ -50,8 +50,9 @@ RUN adduser --system --uid 1001 nextjs
 COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package.json ./package.json
-COPY --from=builder /app/uploads ./uploads
-COPY --from=builder /app/.env* ./
+
+# Create uploads directory (for runtime file uploads)
+RUN mkdir -p ./uploads
 
 # Ensure ws package is available
 RUN npm list ws || npm install ws@^8.18.0
