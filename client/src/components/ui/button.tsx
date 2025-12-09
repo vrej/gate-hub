@@ -5,24 +5,21 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 cursor-pointer",
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
-        destructive:
-          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline:
-          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
-        secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        default: "global-primary-btn-base",
+        destructive: "global-danger-btn-base",
+        outline: "global-secondary-btn-base",
+        secondary: "global-secondary-btn-base",
         ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
+        link: "underline-offset-4 hover:underline",
       },
       size: {
         default: "h-10 px-4 py-2",
-        sm: "h-9 rounded-md px-3",
-        lg: "h-11 rounded-md px-8",
+        sm: "h-9 px-3",
+        lg: "h-11 px-8",
         icon: "h-10 w-10",
       },
     },
@@ -33,6 +30,51 @@ const buttonVariants = cva(
   }
 )
 
+// Get inline styles based on variant
+const getButtonStyles = (variant: string | null | undefined): React.CSSProperties => {
+  switch (variant) {
+    case 'default':
+      return {
+        background: 'linear-gradient(135deg, #A3E635 0%, #84cc16 100%)',
+        border: 'none',
+        borderRadius: '12px',
+        fontFamily: 'Inter, sans-serif',
+        fontSize: '14px',
+        fontWeight: 600,
+        color: '#1E2A38',
+        boxShadow: '0px 6px 20px rgba(163, 230, 53, 0.25)',
+      }
+    case 'destructive':
+      return {
+        background: 'transparent',
+        border: '2px solid #ef4444',
+        borderRadius: '12px',
+        fontFamily: 'Inter, sans-serif',
+        fontSize: '14px',
+        fontWeight: 500,
+        color: '#ef4444',
+      }
+    case 'outline':
+    case 'secondary':
+      return {
+        background: 'transparent',
+        border: '2px solid #a0aec0',
+        borderRadius: '12px',
+        fontFamily: 'Inter, sans-serif',
+        fontSize: '14px',
+        fontWeight: 500,
+        color: '#4a5568',
+      }
+    case 'link':
+      return {
+        color: '#88CF1A',
+        fontFamily: 'Inter, sans-serif',
+      }
+    default:
+      return {}
+  }
+}
+
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
@@ -40,12 +82,15 @@ export interface ButtonProps
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
+  ({ className, variant, size, asChild = false, style, ...props }, ref) => {
     const Comp = asChild ? Slot : "button"
+    const variantStyles = getButtonStyles(variant)
+    
     return (
       <Comp
         className={cn(buttonVariants({ variant, size, className }))}
         ref={ref}
+        style={{ ...variantStyles, ...style }}
         {...props}
       />
     )

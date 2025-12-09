@@ -98,7 +98,7 @@ export default function HeroBannerModal({ isOpen, onClose, heroBanner }: HeroBan
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-[95vw] sm:max-w-2xl max-h-[95vh] overflow-y-auto mx-4">
+      <DialogContent className="max-w-[95vw] sm:max-w-2xl max-h-[95vh] overflow-y-auto mx-4 modal-scrollbar">
         <DialogHeader className="pb-2">
           <DialogTitle className="text-lg font-semibold text-gray-900 flex items-center justify-between">
             <span>Edit Hero Banner</span>

@@ -3,12 +3,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { X } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest, queryClient } from "@/lib/queryClient";
 import { Application, Department } from "@shared/schema";
@@ -109,170 +104,319 @@ export default function RequestModal({ isOpen, onClose, application }: RequestMo
     }
   }, [isOpen, application, form]);
 
+  if (!isOpen) return null;
+
+  const inputStyle: React.CSSProperties = {
+    width: '100%',
+    background: 'linear-gradient(135deg, #fafbfc 0%, #f1f5f9 100%)',
+    border: 'none',
+    borderRadius: '12px',
+    padding: '12px 16px',
+    fontFamily: 'Inter, sans-serif',
+    fontSize: '14px',
+    color: '#4a5568',
+    boxShadow: '0px 4px 12px rgba(149, 157, 165, 0.1)',
+    outline: 'none'
+  };
+
+  const labelStyle: React.CSSProperties = {
+    fontFamily: 'Inter, sans-serif',
+    fontSize: '14px',
+    fontWeight: 500,
+    color: '#4a5568',
+    marginBottom: '6px',
+    display: 'block'
+  };
+
   return (
-    <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-[95vw] sm:max-w-[420px] max-h-[95vh] overflow-y-auto mx-4">
-        <DialogHeader className="pb-2">
-          <DialogTitle className="text-lg font-semibold text-gray-900">
-            Submit an Application Request
-          </DialogTitle>
-          <p className="text-sm text-gray-600 mt-1">
+    <>
+      {/* Overlay */}
+      <div
+        style={{
+          position: 'fixed',
+          inset: 0,
+          background: 'rgba(30, 42, 56, 0.5)',
+          zIndex: 50
+        }}
+        onClick={onClose}
+      />
+      
+      {/* Modal Container */}
+      <div
+        style={{
+          position: 'fixed',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
+          borderRadius: '24px',
+          boxShadow: '0px 8px 24px rgba(149, 157, 165, 0.15)',
+          maxWidth: '480px',
+          width: '90%',
+          maxHeight: '90vh',
+          overflow: 'hidden',
+          zIndex: 51
+        }}
+      >
+        {/* Inner Scrollable Content */}
+        <div
+          className="modal-scroll-content"
+          style={{
+            padding: '32px',
+            paddingRight: '16px',
+            maxHeight: 'calc(90vh - 64px)',
+            overflowY: 'auto'
+          }}
+        >
+        {/* Header */}
+        <div style={{ marginBottom: '24px' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+            <h2 style={{
+              fontFamily: 'Inter, sans-serif',
+              fontSize: '20px',
+              fontWeight: 600,
+              color: '#4a5568',
+              margin: 0
+            }}>
+              Submit an Application Request
+            </h2>
+            <button
+              onClick={onClose}
+              style={{
+                background: 'none',
+                border: 'none',
+                cursor: 'pointer',
+                color: '#a0aec0',
+                padding: '4px'
+              }}
+            >
+              <X size={20} />
+            </button>
+          </div>
+          <p style={{
+            fontFamily: 'Inter, sans-serif',
+            fontSize: '14px',
+            fontWeight: 400,
+            color: '#a0aec0',
+            marginTop: '8px',
+            marginBottom: 0
+          }}>
             Fill out the form below to have your application evaluated.
           </p>
-        </DialogHeader>
+        </div>
         
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3">
-          <div className="space-y-1">
-            <Label htmlFor="applicationName" className="text-sm font-medium">Application Name *</Label>
-            <Input
-              id="applicationName"
+        <form onSubmit={form.handleSubmit(onSubmit)}>
+          {/* Application Name */}
+          <div style={{ marginBottom: '16px' }}>
+            <label style={labelStyle}>Application Name *</label>
+            <input
               placeholder="e.g., Slack, Microsoft Teams"
               {...form.register("applicationName")}
               disabled={!!application}
-              className="h-9"
+              style={{
+                ...inputStyle,
+                opacity: application ? 0.7 : 1
+              }}
+              onFocus={(e) => e.target.style.boxShadow = '0px 4px 12px rgba(163, 230, 53, 0.2)'}
+              onBlur={(e) => e.target.style.boxShadow = '0px 4px 12px rgba(149, 157, 165, 0.1)'}
             />
             {form.formState.errors.applicationName && (
-              <p className="text-xs text-red-600">
+              <p style={{ color: '#ef4444', fontSize: '12px', marginTop: '4px' }}>
                 {form.formState.errors.applicationName.message}
               </p>
             )}
           </div>
 
-          <div className="space-y-1">
-            <Label htmlFor="applicationUrl" className="text-sm font-medium">Application URL *</Label>
-            <Input
-              id="applicationUrl"
+          {/* Application URL */}
+          <div style={{ marginBottom: '16px' }}>
+            <label style={labelStyle}>Application URL *</label>
+            <input
               placeholder="https://example.com"
               {...form.register("applicationUrl")}
               disabled={!!application}
-              className="h-9"
+              style={{
+                ...inputStyle,
+                opacity: application ? 0.7 : 1
+              }}
+              onFocus={(e) => e.target.style.boxShadow = '0px 4px 12px rgba(163, 230, 53, 0.2)'}
+              onBlur={(e) => e.target.style.boxShadow = '0px 4px 12px rgba(149, 157, 165, 0.1)'}
             />
             {form.formState.errors.applicationUrl && (
-              <p className="text-xs text-red-600">
+              <p style={{ color: '#ef4444', fontSize: '12px', marginTop: '4px' }}>
                 {form.formState.errors.applicationUrl.message}
               </p>
             )}
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <div className="space-y-1">
-              <Label htmlFor="firstName" className="text-sm font-medium">First Name *</Label>
-              <Input
-                id="firstName"
+          {/* First Name & Last Name */}
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '16px' }}>
+            <div>
+              <label style={labelStyle}>First Name *</label>
+              <input
                 {...form.register("firstName")}
                 placeholder="John"
-                className="h-9"
+                style={inputStyle}
+                onFocus={(e) => e.target.style.boxShadow = '0px 4px 12px rgba(163, 230, 53, 0.2)'}
+                onBlur={(e) => e.target.style.boxShadow = '0px 4px 12px rgba(149, 157, 165, 0.1)'}
               />
               {form.formState.errors.firstName && (
-                <p className="text-xs text-red-600">{form.formState.errors.firstName.message}</p>
+                <p style={{ color: '#ef4444', fontSize: '12px', marginTop: '4px' }}>
+                  {form.formState.errors.firstName.message}
+                </p>
               )}
             </div>
             
-            <div className="space-y-1">
-              <Label htmlFor="lastName" className="text-sm font-medium">Last Name *</Label>
-              <Input
-                id="lastName"
+            <div>
+              <label style={labelStyle}>Last Name *</label>
+              <input
                 {...form.register("lastName")}
                 placeholder="Doe"
-                className="h-9"
+                style={inputStyle}
+                onFocus={(e) => e.target.style.boxShadow = '0px 4px 12px rgba(163, 230, 53, 0.2)'}
+                onBlur={(e) => e.target.style.boxShadow = '0px 4px 12px rgba(149, 157, 165, 0.1)'}
               />
               {form.formState.errors.lastName && (
-                <p className="text-xs text-red-600">{form.formState.errors.lastName.message}</p>
+                <p style={{ color: '#ef4444', fontSize: '12px', marginTop: '4px' }}>
+                  {form.formState.errors.lastName.message}
+                </p>
               )}
             </div>
           </div>
 
-          <div className="space-y-1">
-            <Label htmlFor="email" className="text-sm font-medium">Email Address *</Label>
-            <Input
-              id="email"
+          {/* Email Address */}
+          <div style={{ marginBottom: '16px' }}>
+            <label style={labelStyle}>Email Address *</label>
+            <input
               type="email"
               {...form.register("email")}
               placeholder="john.doe@company.com"
-              className="h-9"
+              style={inputStyle}
+              onFocus={(e) => e.target.style.boxShadow = '0px 4px 12px rgba(163, 230, 53, 0.2)'}
+              onBlur={(e) => e.target.style.boxShadow = '0px 4px 12px rgba(149, 157, 165, 0.1)'}
             />
             {form.formState.errors.email && (
-              <p className="text-xs text-red-600">{form.formState.errors.email.message}</p>
+              <p style={{ color: '#ef4444', fontSize: '12px', marginTop: '4px' }}>
+                {form.formState.errors.email.message}
+              </p>
             )}
           </div>
 
-          <div className="space-y-1">
-            <Label htmlFor="department" className="text-sm font-medium">Department *</Label>
-            <Select onValueChange={(value) => form.setValue("department", value)}>
-              <SelectTrigger className="h-9">
-                <SelectValue placeholder={departmentsLoading ? "Loading..." : "Select department"} />
-              </SelectTrigger>
-              <SelectContent>
-                {departmentsLoading ? (
-                  <SelectItem value="loading" disabled>Loading departments...</SelectItem>
-                ) : departments.length > 0 ? (
-                  departments.map((dept) => (
-                    <SelectItem key={dept.id.toString()} value={dept.name}>
-                      {dept.name}
-                    </SelectItem>
-                  ))
-                ) : (
-                  <SelectItem value="no-departments" disabled>No departments found</SelectItem>
-                )}
-              </SelectContent>
-            </Select>
+          {/* Department */}
+          <div style={{ marginBottom: '16px' }}>
+            <label style={labelStyle}>Department *</label>
+            <select
+              onChange={(e) => form.setValue("department", e.target.value)}
+              defaultValue=""
+              style={{
+                ...inputStyle,
+                cursor: 'pointer',
+                appearance: 'none',
+                backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23a0aec0' d='M6 8L1 3h10z'/%3E%3C/svg%3E")`,
+                backgroundRepeat: 'no-repeat',
+                backgroundPosition: 'right 16px center'
+              }}
+              onFocus={(e) => e.target.style.boxShadow = '0px 4px 12px rgba(163, 230, 53, 0.2)'}
+              onBlur={(e) => e.target.style.boxShadow = '0px 4px 12px rgba(149, 157, 165, 0.1)'}
+            >
+              <option value="" disabled style={{ color: '#a0aec0' }}>
+                {departmentsLoading ? "Loading..." : "Select department"}
+              </option>
+              {departments.map((dept) => (
+                <option key={dept.id.toString()} value={dept.name}>
+                  {dept.name}
+                </option>
+              ))}
+            </select>
             {form.formState.errors.department && (
-              <p className="text-xs text-red-600">
+              <p style={{ color: '#ef4444', fontSize: '12px', marginTop: '4px' }}>
                 {form.formState.errors.department.message}
               </p>
             )}
           </div>
 
-          <div className="space-y-1">
-            <Label htmlFor="managerEmail" className="text-sm font-medium">Manager's Email *</Label>
-            <Input
-              id="managerEmail"
+          {/* Manager's Email */}
+          <div style={{ marginBottom: '16px' }}>
+            <label style={labelStyle}>Manager's Email *</label>
+            <input
               type="email"
               {...form.register("managerEmail")}
               placeholder="manager@company.com"
-              className="h-9"
+              style={inputStyle}
+              onFocus={(e) => e.target.style.boxShadow = '0px 4px 12px rgba(163, 230, 53, 0.2)'}
+              onBlur={(e) => e.target.style.boxShadow = '0px 4px 12px rgba(149, 157, 165, 0.1)'}
             />
             {form.formState.errors.managerEmail && (
-              <p className="text-xs text-red-600">{form.formState.errors.managerEmail.message}</p>
+              <p style={{ color: '#ef4444', fontSize: '12px', marginTop: '4px' }}>
+                {form.formState.errors.managerEmail.message}
+              </p>
             )}
           </div>
           
-          <div className="space-y-1">
-            <Label htmlFor="justification" className="text-sm font-medium">Business Justification *</Label>
-            <Textarea
-              id="justification"
+          {/* Business Justification */}
+          <div style={{ marginBottom: '24px' }}>
+            <label style={labelStyle}>Business Justification *</label>
+            <textarea
               placeholder="Explain why you need access to this application..."
-              className="resize-none text-sm"
               rows={3}
               {...form.register("justification")}
+              style={{
+                ...inputStyle,
+                resize: 'none'
+              }}
+              onFocus={(e) => e.target.style.boxShadow = '0px 4px 12px rgba(163, 230, 53, 0.2)'}
+              onBlur={(e) => e.target.style.boxShadow = '0px 4px 12px rgba(149, 157, 165, 0.1)'}
             />
             {form.formState.errors.justification && (
-              <p className="text-xs text-red-600">
+              <p style={{ color: '#ef4444', fontSize: '12px', marginTop: '4px' }}>
                 {form.formState.errors.justification.message}
               </p>
             )}
           </div>
           
-          <div className="flex flex-col sm:flex-row sm:justify-end gap-2 sm:space-x-2 pt-3 border-t mt-4">
-            <Button
+          {/* Buttons */}
+          <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '12px' }}>
+            <button
               type="button"
-              variant="outline"
               onClick={onClose}
               disabled={requestMutation.isPending}
-              className="h-9 px-4"
+              style={{
+                background: 'transparent',
+                border: '2px solid #a0aec0',
+                borderRadius: '12px',
+                padding: '10px 20px',
+                fontFamily: 'Inter, sans-serif',
+                fontSize: '14px',
+                fontWeight: 500,
+                color: '#4a5568',
+                cursor: 'pointer',
+                opacity: requestMutation.isPending ? 0.5 : 1
+              }}
             >
               Cancel
-            </Button>
-            <Button
+            </button>
+            <button
               type="submit"
-              className="h-9 px-4 bg-brand hover:bg-brand-dark"
               disabled={requestMutation.isPending}
+              style={{
+                background: 'linear-gradient(135deg, #A3E635 0%, #84cc16 100%)',
+                border: 'none',
+                borderRadius: '12px',
+                padding: '10px 20px',
+                fontFamily: 'Inter, sans-serif',
+                fontSize: '14px',
+                fontWeight: 600,
+                color: '#1E2A38',
+                boxShadow: '0px 6px 20px rgba(163, 230, 53, 0.25)',
+                cursor: 'pointer',
+                opacity: requestMutation.isPending ? 0.5 : 1
+              }}
             >
               {requestMutation.isPending ? "Submitting..." : "Submit Request"}
-            </Button>
+            </button>
           </div>
         </form>
-      </DialogContent>
-    </Dialog>
+        </div>
+      </div>
+    </>
   );
 }

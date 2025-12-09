@@ -24,11 +24,7 @@ function Router() {
       <Route path="/login/callback" component={OktaCallback} />
       <Route path="/reset-password" component={ResetPassword} />
       <Route path="/" component={Applications} />
-      <Route path="/admin" component={() => (
-        <ProtectedRoute>
-          <Admin />
-        </ProtectedRoute>
-      )} />
+      <Route path="/admin" component={Admin} />
       <Route component={NotFound} />
     </Switch>
   );
